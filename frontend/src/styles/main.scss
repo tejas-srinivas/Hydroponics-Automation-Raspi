@@ -1,0 +1,278 @@
+@import "./_variables";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+
+
+h1 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar {
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1rem 3rem;
+    width: 12rem;
+    height: 100vh;
+    transition: 0.5s all;
+    z-index: 10;
+
+    .logoContainer {
+        top: 2rem;
+        align-items: center;
+        justify-content: flex-start;
+        
+        img{
+          width: 200px;  
+        }
+
+    }
+
+    .sidebar-background{
+        width: 200px;
+        height: 200px;
+    }
+
+    .burgerContainer {
+        content: "";
+        background-color: #74b49b;
+        position: absolute;
+        right: (-35px / 2);
+        top: calc(1.5rem / 1.15);
+        width: 35px;
+        height: 35px;
+        border-radius: 2rem;
+        z-index: 1;
+
+        .burgerTrigger {
+            content: "";
+            width: 35px;
+            height: 35px;
+            background-color: red;
+            cursor: pointer;
+            z-index: 6;
+            opacity: 0;
+            position: relative;
+        }
+
+        .burgerMenu {
+            content: "";
+            background-color: #74b49b;
+            position: relative;
+            z-index: 1;
+            width: 20px;
+            height: 3px;
+            border-radius: 2rem;
+            bottom: calc(35px / 2);
+            left: 0.45rem;
+            transition: 0.5s all;
+        }
+
+        .burgerMenu::after {
+            content: "";
+            background-color: #ffffff;
+            position: absolute;
+            width: 20px;
+            height: 3px;
+            border-radius: 2rem;
+            top: 0.4rem;
+            transform: translateY(-0.4rem) rotate(45deg);
+            transition: 0.5s all;
+        }
+
+        .burgerMenu::before {
+            content: "";
+            background-color: #ffffff;
+            position: absolute;
+            width: 20px;
+            height: 3px;
+            border-radius: 2rem;
+            top: -0.4rem;
+            transform: translateY(0.4rem) rotate(-45deg);
+            transition: 0.5s all;
+        }
+    }
+
+    .burgerContainer::after {
+        content: "";
+        position: absolute;
+        right: 19px;
+        top: 3.65rem;
+        z-index: 0;
+        width: calc(6rem + 15rem);
+        background-color: #a7d7c5;
+        height: 2px;
+        transition: 0.5s all;
+    }
+
+    .profileContainer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 3rem 0 0 0;
+        width: max-content;
+        margin-left: 0rem;
+
+        img {
+            width: auto;
+            height: 3rem;
+        }
+
+        .profileContents {
+            padding: 0 0 0rem 1rem;
+
+            p.name {
+                padding: 0;
+                margin: 0;
+                font-size: 18.7px;
+                color: #828282;
+                text-transform: capitalize;
+                font-weight: 600;
+            }
+
+            p {
+                padding: 0;
+                margin: 0;
+                font-size: 13.9px;
+                color: #828282;
+                
+            }
+        }
+    }
+
+    .contentsContainer {
+        margin: 1rem 0 0 0;
+
+        ul {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-direction: column;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                flex-direction: row;
+                margin: 0.45rem 0;
+                padding: 0.45rem 0;
+                width: 100%;
+                border-radius: 1rem;
+                cursor: pointer;
+
+                img {
+                    padding: 0 0.6rem 0 0.5rem;
+                    color: white;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #828282;
+                    font-size: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin: 0 0 0 0.2rem;
+                }
+            }
+
+            li.active {
+                background-color: #25523b;
+                margin-top: 1rem;
+                a {
+                    color: whitesmoke;
+                }
+                 
+                img{
+                    filter:brightness(8)
+                }
+            }
+
+            li:hover {
+                background-color: #2db83d;
+                color: black;
+                transition: 0.25s;
+                filter:brightness(2)
+            }
+        }
+    }
+}
+
+.sidebar.active {
+    width: 3rem;
+    transition: 0.5s all;
+
+    ul{
+        margin-top: 2.75rem;
+    }
+
+    .logoContainer.active {
+        img {
+            width: 80px;
+            height: 40px;
+            margin-left:-1.5rem;
+            margin-top:0.5rem;
+        }
+    }
+
+    .close-background{
+        opacity: 0;
+    }
+
+    .burgerContainer.active {
+        transition: 0.5s all;
+        .burgerMenu {
+            background-color: #ffffff;
+            transition: 0.5s all;
+        }
+
+        .burgerMenu::before {
+            transform: translateY(0rem) rotate(0deg);
+            transition: 0.5s all;
+        }
+
+        .burgerMenu::after {
+            transform: translateY(0rem) rotate(0deg);
+            transition: 0.5s all;
+        }
+    }
+
+    .profileContainer {
+        .profileContents {
+            opacity: 0;
+            margin-left: 0rem;
+        }
+    }
+
+    .contentsContainer {
+        a {
+            opacity: 0;
+        }
+    }
+}
+
+.sign-out{
+    // margin-left:52rem;
+    border-style:none;
+    font-size:20px;
+    font-weight:300;
+    // justify-content:center;
+    background-color:#25523b; 
+    color:#fff; 
+    padding:0.45rem 1.55rem; 
+    border-radius:10px;
+}
+
+.sign-out:hover{
+    background-color: $darkGrey;
+    color: whitesmoke;
+  }
