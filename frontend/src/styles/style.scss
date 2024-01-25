@@ -83,7 +83,7 @@
   .home-content .box-image{
     position: absolute;
     width: 100px;
-    height: 90px;
+    height: 80px;
     z-index: 1;
     opacity: 0.5;
     margin-left: 8rem;
@@ -148,11 +148,12 @@
     flex-flow: column nowrap;
   }
 
-  .overview-boxes :hover{
+  .overview-boxes .box:hover{
     transform: scale(1.15);
     transition: 0.5s ease;
-    background-color: #25523b;
-    color: #f2f2f2
+    background: linear-gradient(225deg, rgba(255,255,255,1) 36%, rgba(39,235,8,1) 100%);
+    // color: #f2f2f2;
+    transition : all 1 ease;
   }
 
   .right-side span:hover{

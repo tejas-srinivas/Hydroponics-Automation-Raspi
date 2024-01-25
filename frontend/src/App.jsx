@@ -12,22 +12,28 @@ import Landing from "./pages/Landing";
 import NotFound from "./pages/Notfound";
 import Login from "./authentication/Login"
 import Signup from "./authentication/SignUp";
+import useAuth from "./authentication/auth";
 
 function App() {
+
+    const user = localStorage.getItem('email')
+    const name = localStorage.getItem('name')
+    const {emailState} = useAuth()
+
     return (
         <Router>
             <div className="App">
                 <Routes>
+                    {emailState && (<Route path="/dashboard" element={<Dashboard name={name}/>} />)}
+                    {user && (<Route path="/phAnalysis" exact element={<PhAnalysis name={name}/>} />)}
+                    {user && (<Route path="/ecAnalysis" element={<EcAnalysis name={name}/>} />)}
+                    {user && (<Route path="/tempAnalysis" element={<TempAnalysis name={name}/>} />)}
+                    {user && (<Route path="/summary" element={<Summary name={name}/>} />)}
+                    {user && (<Route path="/myaccount" element={<Myaccount name={name}/>} />)}
                     <Route path="/" element={<Landing />}></Route>
-                    <Route path="/login" exact element={<Login />}></Route>
-                    <Route path="/signup" exact element={<Signup />}></Route>
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/phAnalysis" element={<PhAnalysis />} />
-                    <Route path="/ecAnalysis" element={<EcAnalysis />} />
-                    <Route path="/tempAnalysis" element={<TempAnalysis />} />
-                    <Route path="/summary" element={<Summary />} />
-                    <Route path="/myaccount" element={<Myaccount />} />
-                    <Route path="*" element = {<NotFound/>}></Route>
+                    <Route path="/login" exact element={<Login />} />
+                    <Route path="/signup" exact element={<Signup />} />
+                    <Route path="*" element={<NotFound />}></Route>
                 </Routes>
             </div>
         </Router>

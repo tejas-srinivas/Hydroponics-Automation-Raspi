@@ -11,7 +11,8 @@ import axios from 'axios';
 import DashChart from "../components/DashChart";
 import Signout from "../components/Signout";
 
-const Dashboard = () => {
+const Dashboard = ({name}) => {
+    // window.location.reload()
     const [data, setData] = useState({
         temperature: "",
         humidity: "",
@@ -19,7 +20,7 @@ const Dashboard = () => {
         ec: ""
     })
 
-    const name = "Ghost"
+    // const name = "Ghost"
 
     const random = async () => {
         try {
@@ -49,7 +50,7 @@ const Dashboard = () => {
 
     return (
         <>
-            <Sidebar />
+            <Sidebar name={name}/>
             <section class="home-section">
                 <nav>
                     <div class="sidebar-button">

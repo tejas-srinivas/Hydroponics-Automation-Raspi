@@ -2,11 +2,11 @@ import React from 'react'
 import Sidebar from "../components/Sidebar";
 import Signout from '../components/Signout';
 
-const Myaccount = () => {
-  const name = "Ghost"
+const Myaccount = ({name}) => {
+  // const name = "Ghost"
   return (
     <div>
-      <Sidebar />
+      <Sidebar name={name}/>
       <section class="home-section">
         <nav>
           <div class="sidebar-button">

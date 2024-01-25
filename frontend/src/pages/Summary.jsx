@@ -4,9 +4,9 @@ import axios from 'axios';
 import moment from 'moment/moment';
 import Signout from '../components/Signout';
 
-const Summary = () => {
+const Summary = ({name}) => {
   const [summary, setSummary] = useState([])
-  const name = "Ghost"
+  // const name = "Ghost"
   const fetchSensorData = async () => {
     try {
       const response = await axios.get("http://localhost:5001/summary_report")
@@ -28,7 +28,7 @@ const Summary = () => {
 
   return (
     <div>
-      <Sidebar />
+      <Sidebar name={name}/>
       <section class="home-section">
         <nav>
           <div class="sidebar-button">

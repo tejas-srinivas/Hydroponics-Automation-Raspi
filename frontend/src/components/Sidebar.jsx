@@ -9,9 +9,9 @@ import Settings from "../Images/settings.svg";
 import Support from "../Images/support.svg";
 import { useLocation } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({name}) => {
     const location = useLocation();
-    const name = "Ghost"
+    // const name = "Ghost"
 
     const [closeMenu, setCloseMenu] = useState(false);
 

@@ -5,10 +5,10 @@ import axios from 'axios';
 import moment from 'moment/moment';
 import Signout from '../components/Signout';
 
-const TempAnalysis = () => {
+const TempAnalysis = ({name}) => {
 
   const [tempsummary, setTempSummary] = useState([])
-  const name = "Ghost"
+  // const name = "Ghost"
   const fetchTempData = async () => {
     try {
       const response = await axios.get("http://localhost:5001/temp_report")
@@ -30,7 +30,7 @@ const TempAnalysis = () => {
 
   return (
     <div>
-      <Sidebar />
+      <Sidebar name={name}/>
       <section class="home-section">
         <nav>
           <div class="sidebar-button">

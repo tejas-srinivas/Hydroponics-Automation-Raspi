@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import validator from 'validator'
 import Image from './background4.jpg'
 import Logo from './LogoT.png'
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
+  const navigate = useNavigate()
   const [first, setFirst] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,19 +25,16 @@ function SignUp() {
     } else {
       setPasswordErrorMessage(false);
     }
-    console.log(password)
+    // console.log(e.target.value)
   }
 
   const handleConfirmPassword = (e) => {
     setConfirmPassword(e.target.value);
-    if (validator.equals(confirmPassword,password)) {
+    if (password === e.target.value) {
       setConfirmPasswordErrorMessage(false);
-      // console.log(confirmPassword)
     } else {
       setConfirmPasswordErrorMessage(true);
     }
-
-    console.log(confirmPassword)
   }
 
   const handleFirstName = (e) => {
@@ -67,10 +66,24 @@ function SignUp() {
     setPassword("")
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    if ((!firstNameErrorMessage && !passwordErrorMessege && !emailErrorMessage && role !== "role")){
-      alert("Account Created !!")
+    const userData = {
+      name: first,
+      email: email,
+      password: password,
+      confirmPassword: confirmPassword,
+      role: role
+    };
+    if ((!firstNameErrorMessage && !passwordErrorMessege && !emailErrorMessage && !confirmPasswordErrorMessege && role !== "role")){
+      await axios.post("http://localhost:5001/registration",userData)
+      .then((response)=>{
+        console.log('Successful Registration', response)
+        alert("Account Created !!")
+        navigate("/login")
+      })
+      .catch((error)=>{console.log(error)});
+      
     }else{
       alert("Fill the details properly....")
       clearForm()
@@ -114,7 +127,7 @@ function SignUp() {
               {/* <label class="required">Password:</label> */}
               <input
                 className="field__input"
-                type="text"
+                type="password"
                 placeholder="Password"
                 name="password"
                 value={password}
@@ -126,7 +139,7 @@ function SignUp() {
               {/* <label class="required">Password:</label> */}
               <input
                 className="field__input"
-                type="text"
+                type="password"
                 placeholder="Re-Enter Password"
                 name="confirmPassword"
                 value={confirmPassword}

@@ -5,10 +5,10 @@ import axios from 'axios';
 import Signout from '../components/Signout';
 import moment from 'moment/moment';
 
-const PhAnalysis = () => {
+const PhAnalysis = ({name}) => {
 
   const [phsummary, setPhSummary] = useState([])
-  const name = "Ghost"
+  // const name = "Ghost"
   const fetchPhData = async () => {
     try {
       const response = await axios.get("http://localhost:5001/ph_report")
@@ -30,7 +30,7 @@ const PhAnalysis = () => {
 
   return (
     <div>
-      <Sidebar />
+      <Sidebar name={name}/>
       <section class="home-section">
         <nav>
           <div class="sidebar-button">

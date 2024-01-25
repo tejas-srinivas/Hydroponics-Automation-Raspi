@@ -5,10 +5,10 @@ import axios from 'axios';
 import moment from 'moment/moment';
 import Signout from '../components/Signout';
 
-const EcAnalysis = () => {
+const EcAnalysis = ({name}) => {
 
   const [ecsummary, setEcSummary] = useState([])
-  const name = "Ghost"
+  // const name = "Ghost"
   const fetchEcData = async () => {
     try {
       const response = await axios.get("http://localhost:5001/ec_report")
@@ -30,7 +30,7 @@ const EcAnalysis = () => {
 
   return (
     <div>
-      <Sidebar />
+      <Sidebar name={name}/>
       <section class="home-section">
         <nav>
           <div class="sidebar-button">

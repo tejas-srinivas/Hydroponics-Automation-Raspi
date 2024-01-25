@@ -1,9 +1,6 @@
 @import "./_variables";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-
-
-
 h1 {
     width: 100vw;
     height: 100vh;
@@ -116,12 +113,13 @@ h1 {
         align-items: center;
         justify-content: flex-start;
         padding: 3rem 0 0 0;
-        width: max-content;
+        width: 120%;
         margin-left: 0rem;
 
         img {
             width: auto;
             height: 3rem;
+            margin-left: -9%;
         }
 
         .profileContents {

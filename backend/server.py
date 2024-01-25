@@ -7,7 +7,7 @@ import bcrypt
 
 app = Flask(__name__)
 app.secret_key = "IOTPROJECT"
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}}, withCredentials = True)
 mongo = PyMongo(app, uri = "mongodb+srv://rootUser:root@smarthydro.zpntnvu.mongodb.net/hydroponic_data")
 
 #inserts new record to database
@@ -18,11 +18,12 @@ def add_user():
         message = "Login in the user"
         return message
     if request.method == 'POST':
-        name = request.form.get("name")
-        email = request.form.get("email")
-        password = request.form.get("password")
-        confirmPassword = request.form.get("confirmPassword")
-        role = request.form.get("role")
+        req = request.get_json()
+        name = req["name"]
+        email = req["email"]
+        password = req["password"]
+        confirmPassword = req["confirmPassword"]
+        role = req["role"]
 
         user_found = mongo.db.users.find_one({"name" : name})
         email_found = mongo.db.users.find_one({"email" : email})
@@ -71,10 +72,11 @@ def login():
         return "User has already logged in"
 
     if request.method == "POST":
-        email = request.form.get("email")
-        password = request.form.get("password")
-
-        #check if email exists in database
+        req = request.get_json()
+        # password = request.get_json("password")
+        email = req['email']
+        password = req['password']
+        # check if email exists in database
         email_found = mongo.db.users.find_one({"email": email})
         if email_found:
             email_val = email_found['email']
@@ -84,7 +86,7 @@ def login():
             if bcrypt.checkpw(password.encode('utf-8'), passwordcheck):
                 session["email"] = email_val
                 message = "Login Succesful go to dashboard"
-                return [email_val,name_val]
+                return {"email":email_val,"name":name_val}
             else:
                 if "email" in session:
                     return "Invalid Password"
