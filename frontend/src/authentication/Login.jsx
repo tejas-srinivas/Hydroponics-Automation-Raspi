@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import validator from 'validator'
 import Image from './background4.jpg'
 import Logo from './LogoT.png'
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function Login() {
   
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -47,7 +47,7 @@ function Login() {
       alert("Login Successful!!")
       // send data to the server and redirect to dashboard page
       // setIsValid(true)
-      navigate("/dashboard")
+      // navigate("/dashboard")
     }else{
       alert("Invalid Email or Password")
       clearForm()
