@@ -220,5 +220,67 @@
     box-shadow:0 2px 15px rgba(64,64,64,.7);
    }
 
+   .filter{
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+   }
+
+   .filter .landing-image{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+   }
+
+   .landing-logo{
+    width: 180px;
+    height: 40px;
+    margin-left: 4rem;
+   }
+
+   .nav-menu li{
+    list-style: none;
+    list-style-type: none;
+    transition: all .5s ease;
+   }
+
+   .landing-nav{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 34.5rem;
+    padding: 1px 10px 1px 10px;
+    width: 100%;
+    transition: 0.6s ease;
+   }
+
+   .bg{
+    background-color: rgba(6, 75, 27, 0.9);
+   }
+
+   .nav-menu{
+    display: flex;
+    gap: 3rem;
+    font-size: 20px;
+   }
+
+   .nav-item{
+    transition: .5s ease;
+   }
+
+   a{
+    text-decoration: none;
+    color: #ffffff;
+   }
+
+   .nav-menu .nav-item:hover{
+    transform:translate(0%,-20%);
+   }
+
 
  
