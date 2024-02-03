@@ -24,15 +24,15 @@ function App() {
         <Router>
             <div className="App">
                 <Routes>
-                    {emailState && (<Route path="/dashboard" element={<Dashboard name={name} title="Dashboard"/>} />)}
+                    {emailState ? (<Route path="/dashboard" element={<Dashboard name={name} title="Dashboard"/>} />) : (<Route path="/login" element={<Login />} />)}
                     {user && (<Route path="/phAnalysis" exact element={<PhAnalysis name={name}/>} />)}
                     {user && (<Route path="/ecAnalysis" element={<EcAnalysis name={name}/>} />)}
                     {user && (<Route path="/tempAnalysis" element={<TempAnalysis name={name}/>} />)}
                     {user && (<Route path="/summary" element={<Summary name={name}/>} />)}
                     {user && (<Route path="/myaccount" element={<Myaccount name={name}/>} />)}
                     <Route path="/" element={<Landing />}></Route>
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/login" exact element={<Login />} />
+                    <Route path="/signup" exact element={<Signup />} />
                     <Route path="*" element={<NotFound />}></Route>
                 </Routes>
             </div>
