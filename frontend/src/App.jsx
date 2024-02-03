@@ -24,7 +24,7 @@ function App() {
         <Router>
             <div className="App">
                 <Routes>
-                    {emailState && (<Route path="/dashboard" element={<Dashboard name={name}/>} />)}
+                    {emailState && (<Route path="/dashboard" element={<Dashboard name={name} title="Dashboard"/>} />)}
                     {user && (<Route path="/phAnalysis" exact element={<PhAnalysis name={name}/>} />)}
                     {user && (<Route path="/ecAnalysis" element={<EcAnalysis name={name}/>} />)}
                     {user && (<Route path="/tempAnalysis" element={<TempAnalysis name={name}/>} />)}

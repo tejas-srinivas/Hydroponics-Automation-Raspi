@@ -7,6 +7,8 @@ import moment from 'moment/moment';
 
 const PhAnalysis = ({name}) => {
 
+  document.title = "pH Analysis"
+
   const [phsummary, setPhSummary] = useState([])
   // const name = "Ghost"
   const fetchPhData = async () => {

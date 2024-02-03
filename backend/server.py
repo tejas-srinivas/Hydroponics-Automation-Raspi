@@ -1,14 +1,23 @@
-from flask import Flask, render_template, session
+from flask import Flask, session
 from flask_pymongo import PyMongo
 from bson.json_util import dumps
 from flask import request
 from flask_cors import CORS
 import bcrypt
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+DATABASE_URI = os.getenv("DATABASE_URI")
 
 app = Flask(__name__)
 app.secret_key = "IOTPROJECT"
 CORS(app, resources={r"/*": {"origins": "*"}}, withCredentials = True)
-mongo = PyMongo(app, uri = "mongodb+srv://rootUser:root@smarthydro.zpntnvu.mongodb.net/hydroponic_data")
+mongo = PyMongo(app, uri = DATABASE_URI)
+
+@app.route("/")
+def ping():
+    return "<h1>Server is running and connected to MongoDB.</h1>"
 
 #inserts new record to database
 @app.route('/registration',methods=['GET','POST'])

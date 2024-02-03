@@ -7,6 +7,8 @@ import Signout from '../components/Signout';
 
 const TempAnalysis = ({name}) => {
 
+  document.title = "Temp Analysis"
+
   const [tempsummary, setTempSummary] = useState([])
   // const name = "Ghost"
   const fetchTempData = async () => {

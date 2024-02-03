@@ -63,8 +63,10 @@ function Login() {
             localStorage.setItem('name', res.data.name)
             alert("Login Successful!!")
             navigate("/dashboard")
-            // res.data.email ? navigate("/dashboard") : clearForm()
-          }).catch(error => console.log(error))
+          }).catch((error) => {
+            alert("Error Connecting to Backend")
+            console.log(error.message)
+          })
       }
     }else{
       alert("Please fill out all fields correctly.")
@@ -76,7 +78,7 @@ function Login() {
   return (
     <>
       <img className="image-authentication" src={Image} alt="" />
-      <div className="wrapper-authentication" style={{ transform: "translate(95%,-160%)" }}>
+      <div className="wrapper-authentication" style={{ transform: "translate(95%,-135%)" }}>
         <form onSubmit={handleSubmit} method="POST">
           <div className="wrapper-heading">
             <h2>Login</h2>
@@ -111,6 +113,7 @@ function Login() {
           </div>
           <div class="text">
             <h3>Don't have an account? <a href="/signup">Signup</a></h3>
+            <h3><a href="/">Go Home</a></h3>
           </div>
         </form>
       </div>

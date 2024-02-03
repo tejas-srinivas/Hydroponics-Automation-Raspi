@@ -7,6 +7,8 @@ import Signout from '../components/Signout';
 
 const EcAnalysis = ({name}) => {
 
+  document.title = "EC Analysis"
+
   const [ecsummary, setEcSummary] = useState([])
   // const name = "Ghost"
   const fetchEcData = async () => {
@@ -16,7 +18,8 @@ const EcAnalysis = ({name}) => {
       setEcSummary(response.data)
     }
     catch (error) {
-      console.log(error)
+      const errorMsg = "Error connecting to backend"
+      return errorMsg
     }
 
   }

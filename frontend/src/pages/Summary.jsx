@@ -5,6 +5,8 @@ import moment from 'moment/moment';
 import Signout from '../components/Signout';
 
 const Summary = ({name}) => {
+
+  document.title = "Summary Report"
   const [summary, setSummary] = useState([])
   // const name = "Ghost"
   const fetchSensorData = async () => {

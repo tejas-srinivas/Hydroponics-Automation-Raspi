@@ -11,7 +11,7 @@ import axios from 'axios';
 import DashChart from "../components/DashChart";
 import Signout from "../components/Signout";
 
-const Dashboard = ({name}) => {
+const Dashboard = ({name, title}) => {
     // window.location.reload()
     const [data, setData] = useState({
         temperature: "",
@@ -20,6 +20,7 @@ const Dashboard = ({name}) => {
         ec: ""
     })
 
+    document.title = title
     // const name = "Ghost"
 
     const random = async () => {

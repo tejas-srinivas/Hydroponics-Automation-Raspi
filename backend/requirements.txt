@@ -1,0 +1,4 @@
+Flask
+Gunicorn
+Flask-CORS
+Flask-Pymongo

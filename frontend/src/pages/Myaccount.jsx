@@ -3,6 +3,7 @@ import Sidebar from "../components/Sidebar";
 import Signout from '../components/Signout';
 
 const Myaccount = ({name}) => {
+  document.title = "My Account"
   // const name = "Ghost"
   return (
     <div>
