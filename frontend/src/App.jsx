@@ -1,7 +1,7 @@
 import "../src/styles/main.scss";
 import "../src/styles/style.scss";
 import "./authentication/App.css"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import PhAnalysis from "./pages/PhAnalysis";
 import EcAnalysis from "./pages/EcAnalysis";
@@ -21,7 +21,7 @@ function App() {
     const {emailState} = useAuth()
 
     return (
-        <Router>
+        <>
             <div className="App">
                 <Routes>
                     {emailState ? (<Route path="/dashboard" element={<Dashboard name={name} title="Dashboard"/>} />) : (<Route path="/login" element={<Login />} />)}
@@ -36,7 +36,7 @@ function App() {
                     <Route path="/*" element={<NotFound />}></Route>
                 </Routes>
             </div>
-        </Router>
+        </>
     );
 }
 
