@@ -1,29 +1,59 @@
-# Real Time Web Dashboard Analysis Using React
+# Real Time Analysis For Hydroponics Using React
 
 This Website is built using React.js and CSS which is adaptable on small or large screens.
 
 ## Glimpse of the website
-## [Link](https://tejas-portfolio-using-react.onrender.com/)
+## [Link](https://smarthydroponics.vercel.app/)
 
-![Screenshot of Web Dashboard](frontend/src/Images/Dashboard.png?raw=true "Optional Title")
+![Screenshot of Landing Page](frontend/src/Images/LandingPage.png?raw=true "Home Page")
+![Screenshot of Web Dashboard](frontend/src/Images/Dashboard.png?raw=true "Dashboard")
 
 ## Getting Started with Create-React-App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Project is built using.\
+1. React.JS (Inerfaces)
+2. Python Flask (Api Handling)
+3. MongoDB (Database)
+4. Vercel and Render (Deployment Platform)
 
-## Available Scripts
+To see the live demo, visit: https://smarthydroponics.vercel.app/ 
+## [Link](https://smarthydroponics.vercel.app/)
 
-In the project directory, you can run:
 
-### `npm start`
+Dependencies of React App
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Axios Package
+### `npm install axios`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. ChartJS-2 - chart library for designing responsive charts.
+### `npm install react-chartjs-2 chartjs`
 
-### `npm run build`
+3. Recoil State -  A recoil based state management library for React applications. It helps in managing global states easily
+### `npm install recoil`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Moment - Used to format date from timestamp in API response.
+### `npm install moment`
+
+5. React-Router-dom - Necessary package for routing within a single page application(SPA).
+### `npm install react-router-dom`
+
+
+Dependencies of Flask App
+
+1. Flask
+### `pip install flask`
+
+2. PyMongo - A python driver for working with MongoDB.
+### `pip install pymongo[ssl]`
+
+3. Bycrypt - This module was used to hash passwords before storing them into the database. 
+### `pip install bcrypt`
+
+4. Dot-env - It helps us to hide our sensitive information like SECRET_KEY by keeping it out of version control on GitHub. 
+### `pip install python-dotenv`
+
+5. CORS - Cross Origin Resource Sharing Middleware for Flask. Allows communication between different origins.
+### `pip install flask-cors`
+
+6. Requests - For making HTTP requests to other APIs.
+### `pip install requests`

@@ -4,9 +4,13 @@ import LandingLogo from '../Images/LandingLogo.png'
 import VgstLogo from '../Images/VGST.png'
 import Image1 from '../Images/hydroponic_garden.jpg'
 import Collage from '../Images/CollageAll.png'
+import axios from 'axios'
 
 const Landing = () => {
 
+  axios.get("https://smarthydro-auth-api.onrender.com/")
+  .then(res => console.log('Connected to the server'))
+  .catch(error  => console.log(`Error: ${error.data}`))
   const [color, setColor] = useState(false)
   const aboutVGST = "The Vision Group on Science and Technology (VGST) was constituted by the Government in 2008 under the Chairmanship of Distinguished Scientist Bharat Ratna Prof. C.N.R. Rao, F.R.S., National Research Professor, Honorary President, JNCSAR. VGST serves as an apex body monitoring VGST programs specifically dovetailed to Karnataka."
   const projectDetails = "VGST, RGS/F scheme,  GRD - 1081"
