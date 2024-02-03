@@ -6,6 +6,8 @@ This Website is built using React.js and CSS which is adaptable on small or larg
 ## [Link](https://smarthydroponics.vercel.app/)
 
 ![Screenshot of Landing Page](frontend/src/Images/LandingPage.png?raw=true "Home Page")
+
+## Dashboard
 ![Screenshot of Web Dashboard](frontend/src/Images/Dashboard.png?raw=true "Dashboard")
 
 ## Getting Started with Create-React-App
