@@ -25,7 +25,7 @@ const Dashboard = ({name, title}) => {
 
     const random = async () => {
 
-        const baseURL = "https://auth-web-dashboard.onrender.com"
+        const baseURL = "https://smarthydro-auth-api.onrender.com"
         try {
             await axios.get(`${baseURL}/real_time`)
                 .then(response => {

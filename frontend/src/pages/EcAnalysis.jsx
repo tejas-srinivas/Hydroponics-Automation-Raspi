@@ -8,7 +8,7 @@ import Signout from '../components/Signout';
 const EcAnalysis = ({name}) => {
 
   document.title = "EC Analysis"
-  const baseURL = "https://auth-web-dashboard.onrender.com"
+  const baseURL = "https://smarthydro-auth-api.onrender.com"
 
   const [ecsummary, setEcSummary] = useState([])
   // const name = "Ghost"

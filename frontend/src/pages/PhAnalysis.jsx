@@ -8,7 +8,7 @@ import moment from 'moment/moment';
 const PhAnalysis = ({name}) => {
 
   document.title = "pH Analysis"
-  const baseURL = "https://auth-web-dashboard.onrender.com"
+  const baseURL = "https://smarthydro-auth-api.onrender.com"
   const [phsummary, setPhSummary] = useState([])
   // const name = "Ghost"
   const fetchPhData = async () => {

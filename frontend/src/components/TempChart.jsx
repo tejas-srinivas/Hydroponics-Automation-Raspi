@@ -28,7 +28,7 @@ Chart.register(
 
 const TempChart = () => {
 
-    const baseURL = "https://auth-web-dashboard.onrender.com"
+    const baseURL = "https://smarthydro-auth-api.onrender.com"
     const [chartData, setChartData] = useState([])
     const fetchTempData = async () => {
         try {

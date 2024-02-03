@@ -8,7 +8,7 @@ import Signout from '../components/Signout';
 const TempAnalysis = ({name}) => {
 
   document.title = "Temp Analysis"
-  const baseURL = "https://auth-web-dashboard.onrender.com"
+  const baseURL = "https://smarthydro-auth-api.onrender.com"
   
   // State variables for data and loading status
   const [tempsummary, setTempSummary] = useState([])

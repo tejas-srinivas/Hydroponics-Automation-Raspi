@@ -7,7 +7,7 @@ import Signout from '../components/Signout';
 const Summary = ({name}) => {
 
   document.title = "Summary Report"
-  const baseURL = "https://auth-web-dashboard.onrender.com"
+  const baseURL = "https://smarthydro-auth-api.onrender.com"
   const [summary, setSummary] = useState([])
   // const name = "Ghost"
   const fetchSensorData = async () => {

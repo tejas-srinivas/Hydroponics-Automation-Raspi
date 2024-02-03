@@ -4,7 +4,7 @@ import axios from 'axios'
 import useAuth from '../authentication/auth';
 
 const Signout = ({name}) => {
-    const baseURL = "https://auth-web-dashboard.onrender.com"
+    const baseURL = "https://smarthydro-auth-api.onrender.com"
     const {emailState, setEmailState} = useAuth()
     // const navigate = useNavigate()
     const handleSignout = () => {

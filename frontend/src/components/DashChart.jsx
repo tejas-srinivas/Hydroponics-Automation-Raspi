@@ -29,7 +29,7 @@ Chart.register(
 
 const DashChart = () => {
 
-    const baseURL = "https://auth-web-dashboard.onrender.com"
+    const baseURL = "https://smarthydro-auth-api.onrender.com"
     const [chartData, setChartData] = useState([])
     const fetchSensorData = async () => {
         try {
