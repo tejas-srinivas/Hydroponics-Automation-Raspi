@@ -24,8 +24,10 @@ const Dashboard = ({name, title}) => {
     // const name = "Ghost"
 
     const random = async () => {
+
+        const baseURL = "https://auth-web-dashboard.onrender.com"
         try {
-            await axios.get("http://localhost:5001/real_time")
+            await axios.get(`${baseURL}/real_time`)
                 .then(response => {
                     // conscole.log(response)
                     setData(response.data[0])

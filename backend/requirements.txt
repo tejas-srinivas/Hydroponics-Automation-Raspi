@@ -1,4 +1,7 @@
 Flask
 Gunicorn
 Flask-CORS
-Flask-Pymongo
+Flask-PyMongo
+pymongo[srv]
+python-dotenv
+bcrypt

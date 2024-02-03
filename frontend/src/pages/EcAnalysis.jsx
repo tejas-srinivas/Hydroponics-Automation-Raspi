@@ -8,12 +8,13 @@ import Signout from '../components/Signout';
 const EcAnalysis = ({name}) => {
 
   document.title = "EC Analysis"
+  const baseURL = "https://auth-web-dashboard.onrender.com"
 
   const [ecsummary, setEcSummary] = useState([])
   // const name = "Ghost"
   const fetchEcData = async () => {
     try {
-      const response = await axios.get("http://localhost:5001/ec_report")
+      const response = await axios.get(`${baseURL}/ec_report`)
       // console.log(response.data)
       setEcSummary(response.data)
     }

@@ -1,17 +1,17 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import Profile from "../Images/avatar.jpg";
 import axios from 'axios'
 import useAuth from '../authentication/auth';
 
 const Signout = ({name}) => {
+    const baseURL = "https://auth-web-dashboard.onrender.com"
     const {emailState, setEmailState} = useAuth()
     // const navigate = useNavigate()
     const handleSignout = () => {
         localStorage.removeItem('email')
         localStorage.removeItem('name')
         setEmailState('')
-        const resp = axios.get("http://localhost:5001/logout")
+        const resp = axios.get(`${baseURL}/logout`)
         console.log(resp.data)
     }
     // const navigate = useNavigate()

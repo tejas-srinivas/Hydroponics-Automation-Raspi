@@ -8,12 +8,14 @@ import Signout from '../components/Signout';
 const TempAnalysis = ({name}) => {
 
   document.title = "Temp Analysis"
-
+  const baseURL = "https://auth-web-dashboard.onrender.com"
+  
+  // State variables for data and loading status
   const [tempsummary, setTempSummary] = useState([])
   // const name = "Ghost"
   const fetchTempData = async () => {
     try {
-      const response = await axios.get("http://localhost:5001/temp_report")
+      const response = await axios.get(`${baseURL}/temp_report`)
       // console.log(response.data)
       setTempSummary(response.data)
     }

@@ -8,12 +8,12 @@ import moment from 'moment/moment';
 const PhAnalysis = ({name}) => {
 
   document.title = "pH Analysis"
-
+  const baseURL = "https://auth-web-dashboard.onrender.com"
   const [phsummary, setPhSummary] = useState([])
   // const name = "Ghost"
   const fetchPhData = async () => {
     try {
-      const response = await axios.get("http://localhost:5001/ph_report")
+      const response = await axios.get(`${baseURL}/ph_report`)
       // console.log(response.data)
       setPhSummary(response.data)
     }

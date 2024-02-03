@@ -27,10 +27,12 @@ Chart.register(
 );
 
 const TempChart = () => {
+
+    const baseURL = "https://auth-web-dashboard.onrender.com"
     const [chartData, setChartData] = useState([])
     const fetchTempData = async () => {
         try {
-            const response = await axios.get("http://localhost:5001/sensor_data")
+            const response = await axios.get(`${baseURL}/sensor_data`)
                 // console.log(response.data)
                 setChartData(response.data) 
         }

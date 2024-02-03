@@ -6,6 +6,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function SignUp() {
+
+  const baseURL = "https://auth-web-dashboard.onrender.com"
   const navigate = useNavigate()
   const [first, setFirst] = useState("");
   const [email, setEmail] = useState("");
@@ -76,7 +78,7 @@ function SignUp() {
       role: role
     };
     if ((!firstNameErrorMessage && !passwordErrorMessege && !emailErrorMessage && !confirmPasswordErrorMessege && role !== "role")){
-      await axios.post("http://localhost:5001/registration",userData)
+      await axios.post(`${baseURL}/registration`,userData)
       .then((response)=>{
         console.log('Successful Registration', response)
         alert("Account Created !!")

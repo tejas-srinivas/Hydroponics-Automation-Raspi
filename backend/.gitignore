@@ -1,3 +1,5 @@
 #dependencies
 /env
 /enc
+.env
+__pycache__

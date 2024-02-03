@@ -7,11 +7,12 @@ import Signout from '../components/Signout';
 const Summary = ({name}) => {
 
   document.title = "Summary Report"
+  const baseURL = "https://auth-web-dashboard.onrender.com"
   const [summary, setSummary] = useState([])
   // const name = "Ghost"
   const fetchSensorData = async () => {
     try {
-      const response = await axios.get("http://localhost:5001/summary_report")
+      const response = await axios.get(`${baseURL}/summary_report`)
       // console.log(response.data)
       setSummary(response.data)
     }

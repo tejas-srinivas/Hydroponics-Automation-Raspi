@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "./auth";
 
 function Login() {
+  const baseURL = "https://auth-web-dashboard.onrender.com"
 
   const navigate = useNavigate()
   const [email, setEmail] = useState("");
@@ -55,7 +56,7 @@ function Login() {
       if (user) {
         navigate("/dashboard")
       } else {
-        await axios.post('http://localhost:5001/login', userData)
+        await axios.post(`${baseURL}/login`, userData)
           .then((res) => {
             // console.log(res.data.email)
             setEmailState(res.data.email)
