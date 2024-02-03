@@ -31,8 +31,8 @@ function App() {
                     {user && (<Route path="/summary" element={<Summary name={name}/>} />)}
                     {user && (<Route path="/myaccount" element={<Myaccount name={name}/>} />)}
                     <Route path="/" element={<Landing />}></Route>
-                    <Route path="/login" exact element={<Login />} />
-                    <Route path="/signup" exact element={<Signup />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
                     <Route path="*" element={<NotFound />}></Route>
                 </Routes>
             </div>
