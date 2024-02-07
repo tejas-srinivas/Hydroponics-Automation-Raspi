@@ -5,6 +5,7 @@ import Logo from './LogoT.png'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import useAuth from "./auth";
+import Loading from "../components/Loading";
 
 function Login() {
   const baseURL = "https://smarthydro-auth-api.onrender.com"
@@ -13,7 +14,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const {emailState, setEmailState} = useAuth()
-
+  const [loading, setLoading] = useState(false)
   const [passwordErrorMessege, setPasswordErrorMessage] = useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = useState(false)
 
@@ -46,6 +47,7 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
     const userData = {
       email: email,
       password: password
@@ -74,6 +76,10 @@ function Login() {
       clearForm()
     }
 
+  }
+
+  if(loading){
+    return <Loading />;
   }
 
   return (

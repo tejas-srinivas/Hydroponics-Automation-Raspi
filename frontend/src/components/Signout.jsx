@@ -2,18 +2,26 @@ import React from 'react'
 import Profile from "../Images/avatar.jpg";
 import axios from 'axios'
 import useAuth from '../authentication/auth';
+import Loading from './Loading';
+import { useState } from 'react';
 
 const Signout = ({name}) => {
     const baseURL = "https://smarthydro-auth-api.onrender.com"
     const {emailState, setEmailState} = useAuth()
+    const  [loading, setLoading] = useState(false)
     // const navigate = useNavigate()
     const handleSignout = () => {
+        setLoading(true)
         localStorage.removeItem('email')
         localStorage.removeItem('name')
         setEmailState('')
         const resp = axios.get(`${baseURL}/logout`)
+        window.location.href("/")
         console.log(resp.data)
     }
+
+    if(loading)
+        return  <Loading />
     // const navigate = useNavigate()
     return (
         <div className='wrap' style={{ display: "flex", alignItems: "center", justifyContent: "space-between",gap: "2rem"}}>

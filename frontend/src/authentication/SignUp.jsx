@@ -4,6 +4,7 @@ import Image from './background4.jpg'
 import Logo from './LogoT.png'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Loading from "../components/Loading";
 
 function SignUp() {
 
@@ -14,7 +15,7 @@ function SignUp() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [role, setRole] = useState("role")
-
+  const [Loading, setLoading] = useState(false)
   const [passwordErrorMessege, setPasswordErrorMessage] = useState(false);
   const [confirmPasswordErrorMessege, setConfirmPasswordErrorMessage] = useState(false);
   const [firstNameErrorMessage, setFirstNameErrorMessage] = useState(false);
@@ -70,6 +71,7 @@ function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
     const userData = {
       name: first,
       email: email,
@@ -90,6 +92,10 @@ function SignUp() {
       alert("Fill the details properly....")
       clearForm()
     }
+  }
+
+  if(Loading){
+    return <Loading />
   }
 
   return (

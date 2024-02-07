@@ -24,7 +24,7 @@ function App() {
         <>
             <div className="App">
                 <Routes>
-                    {emailState ? (<Route path="/dashboard" element={<Dashboard name={name} title="Dashboard"/>} />) : (<Route path="/login" element={<Login />} />)}
+                    {emailState ? (<Route path="/dashboard" element={<Dashboard name={name} title="Dashboard"/>} />) : (<Route path="/" element={<Landing />} />)}
                     {user && (<Route path="/phAnalysis" exact element={<PhAnalysis name={name}/>} />)}
                     {user && (<Route path="/ecAnalysis" element={<EcAnalysis name={name}/>} />)}
                     {user && (<Route path="/tempAnalysis" element={<TempAnalysis name={name}/>} />)}
