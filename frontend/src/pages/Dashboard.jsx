@@ -106,7 +106,7 @@ const Dashboard = ({name, title}) => {
                     </div>
                     <div class="graph-box">
                         <div class="history-charts">
-                            <div class="title">Ph, EC Monitoring</div>
+                            <div class="title">Ph, EC Charts</div>
                             <DashChart />
                         </div>
                         <div class="gaugeCharts">

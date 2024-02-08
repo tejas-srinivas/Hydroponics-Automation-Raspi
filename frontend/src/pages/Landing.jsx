@@ -106,6 +106,7 @@ const Landing = () => {
               <li className='nav-item'><a href="#home" className='nav-link'>Home</a></li>
               <li className='nav-item'><a href="#about" className='nav-link'>About</a></li>
               <li className='nav-item'><a href="#features" className='nav-link'>Features</a></li>
+              <li className='nav-item'><a href="#usage" className='nav-link'>Usage</a></li>
             </ul>
           </div>
         </div>

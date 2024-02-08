@@ -55,7 +55,6 @@ html {
   .home-section .home-content{
     position: relative;
     padding-top: 22px;
-    // overflow-y:auto;
   }
   .home-content .overview-boxes{
     display: flex;
@@ -68,7 +67,8 @@ html {
   .overview-boxes .box{
     display: flex;
     justify-content: flex-start;
-    width: 176px;
+    width: 15%;
+    max-width: 196px;
     // background: linear-gradient(240deg, rgba(255,255,255,1) 54%, rgba(5,191,42,1) 100%);
     background: #ffffff;
     padding: 25px 63px 17px 35px;
@@ -81,10 +81,6 @@ html {
     color: #25523b;
   }
   
-  // .overview-boxes .home-content{
-  //   // background: linear-gradient(184deg, rgba(255,255,255,1) 54%, rgba(5,252,54,1) 100%);
-  // }
-
   .home-content .box-image{
     position: absolute;
     width: 100px;
@@ -108,12 +104,13 @@ html {
     border-radius: 12px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   }
+
   .home-content .graph-box .history-charts{
     display: flex;
     flex-flow: column wrap;
-  }
-  .home-content .graph-box .history-details{
-    display: flex;
+    width: 60%;
+    max-width: 810px;
+    max-height: 1000px;
     justify-content: space-between; 
   }
   
@@ -140,7 +137,7 @@ html {
   .home-content .graph-box .gaugeCharts{
     width: 30%;
     background: #fff;
-    padding: 20px 30px;
+    padding: 3% 25px 1%;
     margin: 0 20px 0 0;
     border-radius: 12px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
