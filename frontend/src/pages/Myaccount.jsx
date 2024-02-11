@@ -29,7 +29,11 @@ const Myaccount = ({ name }) => {
         setData(res.data)
         setName(data.name)
         setEmail(data.email)
+        setPassword("")
+        setRepassword("")
         alert("Profile Updated Successfully")
+        setIsFormDisabled(true)
+        setEditButtonDisabled(false)
       }).catch((error) => console.log(error))
     }else {
       alert("Name should not be empty & password should have at least 8 characters")
