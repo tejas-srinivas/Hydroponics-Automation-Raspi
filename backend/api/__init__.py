@@ -77,6 +77,30 @@ def create_app():
             return "Logout successful"
         else:
             return "Error Occured"
+        
+    #Update api
+    @app.route("/updateDetails", methods=["POST"])
+    def updateDetails():
+        if request.method == "POST":
+            data = request.get_json()
+            email = data['email']
+            name = data['name']
+            passw = data['password']
+            repassw = data['repassword']
+
+            if passw != repassw:
+                message = "Passwords did not match"
+                return message
+            else:
+                session["email"] = email
+                hashed = bcrypt.hashpw(passw.encode('utf-8'), bcrypt.gensalt())
+                user_input = {'name': name, 'email': email, 'password': hashed}
+                query = {"email": email}
+                mongo.db.users.update_one(query, {"$set": user_input}, upsert=False)
+                result = mongo.db.users.find_one({'email': email})
+                return dumps(result)
+        else:
+            return "Error Occured"
 
     #api used to login to the database
     @app.route("/login", methods=["POST", "GET"])
@@ -87,7 +111,6 @@ def create_app():
 
         if request.method == "POST":
             req = request.get_json()
-            # password = request.get_json("password")
             email = req['email']
             password = req['password']
             # check if email exists in database

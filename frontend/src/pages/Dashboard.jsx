@@ -45,7 +45,7 @@ const Dashboard = ({name, title}) => {
 
     useEffect(() => {
         random()
-        const intervalId = setInterval(random, 61000);
+        const intervalId = setInterval(random, 10000);
 
         return () => clearInterval(intervalId);
     }, [])
@@ -112,8 +112,8 @@ const Dashboard = ({name, title}) => {
                         <div class="gaugeCharts">
                             <div class="title">Gauge Charts</div>
                             <div class="gauge-list">
-                                <div class="gauge-box"><div id="humidity-gauge">Temperature<GaugeChart temp={data.temperature} /></div></div>
-                                <div class="gauge-box"><div id="humidity-gauge">Humidity<HumidtyGauge humidity={data.humidity} /></div></div>
+                                <div class="gauge-box"><div id="humidity-gauge">Temperature: <GaugeChart temp={data.temperature} /></div></div>
+                                <div class="gauge-box"><div id="humidity-gauge">Humidity: <HumidtyGauge humidity={data.humidity} /></div></div>
                             </div>
                         </div>
                     </div>

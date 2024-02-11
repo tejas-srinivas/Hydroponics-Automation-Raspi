@@ -15,7 +15,7 @@ function SignUp() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [role, setRole] = useState("role")
-  const [Loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [passwordErrorMessege, setPasswordErrorMessage] = useState(false);
   const [confirmPasswordErrorMessege, setConfirmPasswordErrorMessage] = useState(false);
   const [firstNameErrorMessage, setFirstNameErrorMessage] = useState(false);
@@ -94,7 +94,7 @@ function SignUp() {
     }
   }
 
-  if(Loading){
+  if(loading){
     return <Loading />
   }
 
