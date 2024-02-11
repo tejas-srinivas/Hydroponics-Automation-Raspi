@@ -54,7 +54,7 @@ const Summary = ({ name }) => {
         <div className='home-content'>
           <table id="sensors">
             <caption style={{ fontSize: "150%", backgroundColor: "#25523b", color: "#f2f2f2", padding: "15px 0px 15px 15px", textAlign: "left" }}>Real Time Sensor Data</caption>
-            <caption style={{ position: "absolute", left: "82%", top: "0.3%" }}><button onClick={handleClick} style={{border:"none", fontFamily:"Poppins" ,borderRadius:"10px", backgroundColor: "#2db83d", cursor: "pointer", color: "#f2f2f2", padding: "10px 25px 10px 25px" }}>Export xlsx</button></caption>
+            <caption style={{ position: "absolute", left: "82%", top: "0.3%" }}><button className='export' onClick={handleClick} style={{border:"none", fontFamily:"Poppins" ,borderRadius:"10px", backgroundColor: "#2db83d", cursor: "pointer", color: "#f2f2f2", padding: "10px 25px 10px 25px" }}>Export xlsx</button></caption>
             <thead>
               <tr>
                 <th>Sl.no</th>

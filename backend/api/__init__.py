@@ -137,7 +137,7 @@ def create_app():
     # gets only current data
     @app.route('/real_time')
     def get_real_time_data():
-        realTime = mongo.db.real_time_data.find()
+        realTime = mongo.db.sensor_data.find().sort({"_id":-1}).limit(1)
         resp = dumps(realTime)
         return resp
 
@@ -151,7 +151,7 @@ def create_app():
     #gets all data
     @app.route('/summary_report')
     def get_summary_report():
-        summary = mongo.db.sensor_data.find()
+        summary = mongo.db.sensor_data.find().sort({"_id":-1})
         resp = dumps(summary)
         return resp
 
