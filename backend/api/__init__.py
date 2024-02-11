@@ -79,9 +79,9 @@ def create_app():
             return "Error Occured"
         
     #Update api
-    @app.route("/updateDetails", methods=["POST"])
+    @app.route("/updateDetails", methods=['GET','POST','PUT'])
     def updateDetails():
-        if request.method == "POST":
+        if request.method == "PUT":
             data = request.get_json()
             email = data['email']
             name = data['name']

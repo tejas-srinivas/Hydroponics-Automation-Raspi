@@ -53,7 +53,7 @@ const Myaccount = ({ name }) => {
           <h3 style={{ marginLeft: "65%" }}>Edit Details</h3>
           <div className='per-details' style={{ display: "flex", alignItems: "center", justifyContent: "space-around" }}>
             <img src={Profile} alt="profile" className="profile" style={{ mixBlendMode: "multiply" }} width={300} height={300} />
-            <form className='form-wrapper'>
+            <form className='form-wrapper' method='post'>
               <div className='form-values'>
                 <label for="fname">Name :</label><br />
                 <div className='input-wrapper'>

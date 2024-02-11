@@ -60,12 +60,25 @@ function Login() {
       } else {
         await axios.post(`${baseURL}/login`, userData)
           .then((res) => {
-            // console.log(res.data.email)
-            setEmailState(res.data.email)
-            localStorage.setItem('email', res.data.email)
-            localStorage.setItem('name', res.data.name)
-            alert("Login Successful!!")
-            navigate("/dashboard")
+            console.log(res.data)
+            if(res.data === "Wrong password"){
+              alert("Incorrect Password! Please try again.")
+              setLoading(false)
+            }
+            else if(res.data === "Email not found"){
+              alert("This Email is not registered! Please Sign Up to continue.")
+              setLoading(false)
+            }else if(res.data === "Invalid username or password"){
+              alert(res.data);
+              setLoading(false)
+            }
+            else{
+              setEmailState(res.data.email)
+              localStorage.setItem('email', res.data.email)
+              localStorage.setItem('name', res.data.name)
+              alert("Login Successful!!")
+              navigate("/dashboard")
+            }
           }).catch((error) => {
             alert("Error Connecting to Backend")
             console.log(error.message)
@@ -73,6 +86,7 @@ function Login() {
       }
     }else{
       alert("Please fill out all fields correctly.")
+      e.preventDefault()
       clearForm()
     }
 
