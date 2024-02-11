@@ -6,6 +6,7 @@ import Image1 from '../Images/hydroponic_garden.jpg'
 import Collage from '../Images/CollageAll.png'
 import Sjbit from '../Images/sjbit.png'
 import axios from 'axios'
+import Features from '../components/Features'
 
 const Landing = () => {
 
@@ -94,9 +95,10 @@ const Landing = () => {
             </div>
           </div>
         </div>
+        <div className='features' style={{}}>
+          <Features />
+        </div>
       </div>
-      <br />
-      <br />
       {/* =================================== footer =========================================== */}
       <div className="footer-container">
         <div className="footer-wrapper">
