@@ -38,7 +38,7 @@ const Logs = ({ name }) => {
                     </div>
                 </nav>
                 <div className='home-content'>
-                    {logsData.data == null ? "" :
+                    {logsData.data === null ? <h2>Loading</h2> :
                         <table id="sensors">
                             <caption style={{ fontSize: "150%", backgroundColor: "#25523b", color: "#f2f2f2", padding: "15px 0px 15px 15px", textAlign: "left" }}>Logs Data</caption>
                             <thead>
@@ -53,8 +53,8 @@ const Logs = ({ name }) => {
                                     logsData.map((value, index) => {
                                         return <tr key={index}>
                                             <td>{index + 1}</td>
-                                            <td>{value.status} ºC</td>
-                                            <td>{moment(value.timestamp).format('lll')}</td>
+                                            <td>{value.status}</td>
+                                            <td>{moment(value.timestamp).format('MMMM Do YYYY, h:mm:ss a')}</td>
                                         </tr>
                                     })
                                 }

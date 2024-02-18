@@ -110,7 +110,7 @@ const Sidebar = ({name}) => {
                             location.pathname === "/logs" ? "active" : ""
                         }
                     >
-                        <img src={Settings} alt="Settings" />
+                        <img src={Performance} alt="Logs" />
                         <a href="/logs">Logs</a>
                     </li>
                     <li
