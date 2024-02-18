@@ -184,6 +184,13 @@ def create_app():
         })
         resp = dumps(summary)
         return resp
+    
+    #gets the logs data generated during nutrition dosing
+    @app.route('/logs_data')
+    def get_all_logs():
+        logsData = mongo.db.logs.find().sort({"_id":-1})
+        resp = dumps(logsData)
+        return resp
 
     # if __name__ == '__main__':
     #     app.run(host='0.0.0.0', port = 5001, debug=True)

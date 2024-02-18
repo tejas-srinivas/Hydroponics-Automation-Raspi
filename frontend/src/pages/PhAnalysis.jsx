@@ -50,7 +50,7 @@ const PhAnalysis = ({name}) => {
           </div>
           <br></br>
 
-          <h2>Ph Data</h2>
+          <h2 style={{margin:"auto", marginLeft:"2%"}}>Ph Data</h2>
           <table>
             <thead>
               <tr>

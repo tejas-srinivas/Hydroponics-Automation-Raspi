@@ -20,12 +20,11 @@ const Summary = ({ name }) => {
     catch (error) {
       console.log(error)
     }
-
   }
 
   useEffect(() => {
     fetchSensorData()
-    const intervalId = setInterval(fetchSensorData, 61000);
+    const intervalId = setInterval(fetchSensorData, 10000);
 
     return () => clearInterval(intervalId);
   }, [])
@@ -34,7 +33,6 @@ const Summary = ({ name }) => {
     var wb = XLSX.utils.table_to_book(document.getElementById("sensors"))
     var ws = wb.Sheets["Sheet1"];
     XLSX.utils.sheet_add_aoa(ws, [["Created " + new Date().toISOString()]], { origin: -1 });
-
     // Package and Release Data (`writeFile` tries to write and save an XLSB file)
     XLSX.writeFile(wb, "Sensor_Report.xlsx");
 
@@ -47,14 +45,13 @@ const Summary = ({ name }) => {
         <nav>
           <div class="sidebar-button">
             <span class="dashboard">Summary Report</span>
-
             <Signout name={name} />
           </div>
         </nav>
         <div className='home-content'>
           <table id="sensors">
             <caption style={{ fontSize: "150%", backgroundColor: "#25523b", color: "#f2f2f2", padding: "15px 0px 15px 15px", textAlign: "left" }}>Real Time Sensor Data</caption>
-            <caption style={{ position: "absolute", left: "82%", top: "0.3%" }}><button className='export' onClick={handleClick} style={{border:"none", fontFamily:"Poppins" ,borderRadius:"10px", backgroundColor: "#2db83d", cursor: "pointer", color: "#f2f2f2", padding: "10px 25px 10px 25px" }}>Export xlsx</button></caption>
+            <caption style={{ position: "absolute", left: "82%", top: "1.5%" }}><button className='export' onClick={handleClick} style={{border:"none", fontFamily:"Poppins" ,borderRadius:"10px", backgroundColor: "#2db83d", cursor: "pointer", color: "#f2f2f2", padding: "10px 25px 10px 25px" }}>Export xlsx</button></caption>
             <thead>
               <tr>
                 <th>Sl.no</th>

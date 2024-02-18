@@ -65,7 +65,7 @@ const GaugeChart = (props) => {
                         ticks: [
                             { value: 13 },
                             { value: 22.5 },
-                            { value: 35 },
+                            { value: 33.5 },
                             { value: 45 }
                         ],
                     }

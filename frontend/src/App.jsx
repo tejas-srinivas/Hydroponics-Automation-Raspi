@@ -13,6 +13,7 @@ import NotFound from "./pages/Notfound";
 import Login from "./authentication/Login"
 import Signup from "./authentication/SignUp";
 import useAuth from "./authentication/auth";
+import Logs from "./pages/Logs";
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
                     {user && (<Route path="/tempAnalysis" element={<TempAnalysis name={name}/>} />)}
                     {user && (<Route path="/summary" element={<Summary name={name}/>} />)}
                     {user && (<Route path="/myaccount" element={<Myaccount name={name}/>} />)}
+                    {user && (<Route path="/logs" element={<Logs name={name}/>} />)}
                     <Route path="/" element={<Landing />}></Route>
                     <Route path="/login" exact element={<Login />} />
                     <Route path="/signup" exact element={<Signup />} />

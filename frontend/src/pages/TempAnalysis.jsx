@@ -52,7 +52,7 @@ const TempAnalysis = ({name}) => {
           </div>
           <br></br>
 
-          <h2>Temperature Data</h2>
+          <h2 style={{margin:"auto", marginLeft:"2%"}}>Temperature Data</h2>
           <table>
             <thead>
               <tr>

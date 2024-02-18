@@ -107,6 +107,14 @@ const Sidebar = ({name}) => {
                     </li>
                     <li
                         className={
+                            location.pathname === "/logs" ? "active" : ""
+                        }
+                    >
+                        <img src={Settings} alt="Settings" />
+                        <a href="/logs">Logs</a>
+                    </li>
+                    <li
+                        className={
                             location.pathname === "/myaccount" ? "active" : ""
                         }
                     >

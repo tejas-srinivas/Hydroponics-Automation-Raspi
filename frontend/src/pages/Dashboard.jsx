@@ -10,6 +10,7 @@ import Sidebar from "../components/Sidebar"
 import axios from 'axios';
 import DashChart from "../components/DashChart";
 import Signout from "../components/Signout";
+import moment from 'moment/moment';
 
 const Dashboard = ({name, title}) => {
     // window.location.reload()
@@ -58,8 +59,8 @@ const Dashboard = ({name, title}) => {
                 <nav>
                     <div class="sidebar-button">
                         <span class="dashboard">Dashboard</span>
-                <code style={{position:"absolute", margin:"auto", marginLeft:"45%", textAlign:"center", fontWeight:"500", fontSize:"20px"}}>{data.timestamp}</code>
-                            <Signout name={name}/>
+                        <code style={{position:"absolute", margin:"auto", marginLeft:"45%", textAlign:"center", fontWeight:"500", fontSize:"20px"}}>{moment(data.timestamp).format('lll')}</code>
+                        <Signout name={name} />
                     </div>
                 </nav>
                 <div class="home-content">

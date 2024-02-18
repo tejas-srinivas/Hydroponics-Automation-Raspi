@@ -52,7 +52,7 @@ const EcAnalysis = ({name}) => {
           </div>
           <br></br>
 
-          <h2>Ec Data</h2>
+          <h2 style={{margin:"auto", marginLeft:"2%"}}>Ec Data</h2>
           <table>
             <thead>
               <tr>

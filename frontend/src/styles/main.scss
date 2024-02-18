@@ -32,12 +32,13 @@ h1 {
     }
 
     .sidebar-background{
-        width: 200px;
-        height: 200px;
+        width: 160px;
+        height: 120px;
         margin: auto;
         position: absolute;
-        top: 70%;
+        top: 75%;
         height: auto;
+        mix-blend-mode: multiply;
     }
 
     .burgerContainer {
@@ -104,10 +105,10 @@ h1 {
         content: "";
         position: absolute;
         right: 19px;
-        top: 3.65rem;
+        top: 3.5rem;
         z-index: 0;
         width: calc(6rem + 15rem);
-        background-color: #a7d7c5;
+        background-color: rgb(45, 184, 61);
         height: 2px;
         transition: 0.5s all;
     }
@@ -165,11 +166,12 @@ h1 {
                 align-items: center;
                 justify-content: flex-start;
                 flex-direction: row;
-                margin: 0.45rem 0;
+                margin: 0.25rem 0;
                 padding: 0.45rem 0;
                 width: 100%;
                 border-radius: 1rem;
                 cursor: pointer;
+                // font-size: 10px;
 
                 img {
                     padding: 0 0.6rem 0 0.5rem;
@@ -179,7 +181,7 @@ h1 {
                 a {
                     text-decoration: none;
                     color: #828282;
-                    font-size: 20px;
+                    font-size: 18px;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
@@ -214,7 +216,7 @@ h1 {
     transition: 0.5s all;
 
     ul{
-        margin-top: 2.75rem;
+        margin-top: 0.15rem;
     }
 
     .logoContainer.active {
