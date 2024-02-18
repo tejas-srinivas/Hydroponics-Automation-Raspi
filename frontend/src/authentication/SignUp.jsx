@@ -100,8 +100,8 @@ function SignUp() {
 
   return (
     <>
-      <img className="image-authentication" src={Image} alt="" />
-      <div className="wrapper-authentication">
+      <img className="image-authentication" style={{height:"100vh", width:"100vw"}} src={Image} alt="" />
+      <div className="wrapper-authentication signup">
         <form onSubmit={handleSubmit} method="POST">
           <div className="wrapper-heading">
             <h2>Sign Up</h2>
@@ -116,6 +116,7 @@ function SignUp() {
                 value={first}
                 name="name"
                 onChange={handleFirstName}
+                required
               />
               {firstNameErrorMessage && <p style={{ color: "red", fontSize: "11px", marginTop:"1px" }}>Name cannot be empty</p>}
             </div>
@@ -128,6 +129,7 @@ function SignUp() {
                 name="email"
                 value={email}
                 onChange={handleEmail}
+                required
               />
               {emailErrorMessage && <p style={{ color: "red", fontSize: "11px", marginTop:"1px"}}>Enter valid email</p>}
             </div>
@@ -140,6 +142,7 @@ function SignUp() {
                 name="password"
                 value={password}
                 onChange={handlePassword}
+                required
               />
               {passwordErrorMessege && <p style={{ color: "red", fontSize: "11px",marginTop:"1px" }}>Password must be 8 characters long</p>}
             </div>
@@ -152,13 +155,14 @@ function SignUp() {
                 name="confirmPassword"
                 value={confirmPassword}
                 onChange={handleConfirmPassword}
+                required
               />
               {confirmPasswordErrorMessege && <p style={{ color: "red", fontSize: "11px",marginTop:"1px" }}>Passwords did not match</p>}
             </div>
             <div className="field">
               <label class="required">Role:</label>
               <br />
-              <select name="role" value={role} onChange={(e) => setRole(e.target.value)}>
+              <select name="role" value={role} onChange={(e) => setRole(e.target.value)} required>
                 <option value="role">Role</option>
                 <option value="Admin">Admin</option>
                 <option value="User">User</option>

@@ -58,6 +58,7 @@ const Dashboard = ({name, title}) => {
                 <nav>
                     <div class="sidebar-button">
                         <span class="dashboard">Dashboard</span>
+                <code style={{position:"absolute", margin:"auto", marginLeft:"45%", textAlign:"center", fontWeight:"500", fontSize:"20px"}}>{data.timestamp}</code>
                             <Signout name={name}/>
                     </div>
                 </nav>

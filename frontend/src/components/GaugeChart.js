@@ -10,6 +10,7 @@ const GaugeChart = (props) => {
                     width: 0.2,
                     padding: 0.005,
                     cornerRadius: 1,
+                    color:"#000000",
                     // gradient: true,
                     subArcs: [
                         {
@@ -37,7 +38,7 @@ const GaugeChart = (props) => {
                             }
                         },
                         {
-                            limit: 30, color: '#F5CD19', showTick: true,
+                            limit: 38, color: '#F5CD19', showTick: true,
                             tooltip: {
                                 text: 'High temperature!'
                             }
@@ -57,20 +58,21 @@ const GaugeChart = (props) => {
                     elastic: true,
                 }}
                 labels={{
-                    valueLabel: { formatTextValue: value => value + 'ºC' },
+                    valueLabel: { formatTextValue: value => value + 'ºC', color:'#000000' },
                     tickLabels: {
                         type: 'outer',
-                        valueConfig: { formatTextValue: value => value + 'ºC', fontSize: 10 },
+                        valueConfig: { formatTextValue: value => value + 'ºC', fontSize: 15, color:"#000000" },
                         ticks: [
                             { value: 13 },
                             { value: 22.5 },
-                            { value: 32 }
+                            { value: 35 },
+                            { value: 45 }
                         ],
                     }
                 }}
                 value={props.temp}
                 minValue={10}
-                maxValue={35}
+                maxValue={45}
             />
         </div>
     )

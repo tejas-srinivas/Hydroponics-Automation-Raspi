@@ -98,8 +98,8 @@ function Login() {
 
   return (
     <>
-      <img className="image-authentication" src={Image} alt="" />
-      <div className="wrapper-authentication" style={{ transform: "translate(95%,-135%)" }}>
+      <img className="landing-image" style={{height:"100vh", width:"100vw"}} src={Image} alt="hydroponics-background" />
+      <div className="wrapper-authentication login">
         <form onSubmit={handleSubmit} method="POST">
           <div className="wrapper-heading">
             <h2>Login</h2>
@@ -114,6 +114,7 @@ function Login() {
               name="email"
               value={email}
               onChange={handleEmail}
+              required
             />
             {emailErrorMessage && <p style={{ color: "red", fontSize: "8px" }}>Enter valid email</p>}
           </div>
@@ -126,6 +127,7 @@ function Login() {
               name="password"
               value={password}
               onChange={handlePassword}
+              required
             />
             {passwordErrorMessege && <p style={{ color: "red", fontSize: "8px" }}>Password should have atleast 8 characters</p>}
           </div>

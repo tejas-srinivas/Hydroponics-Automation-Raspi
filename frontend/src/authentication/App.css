@@ -22,10 +22,9 @@
   align-items: center;
   justify-content: center;
   margin: 0;
-  /* background: #25523d; */
-}  
+}
+
 .wrapper-authentication{
-  position: absolute;
   max-width: 480px;
   width: 100%;
   background: #fff;
@@ -33,9 +32,19 @@
   border-radius: 6px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   border: none;
-  transform: translate(95%,-110%);
-  overflow: hidden;
+  margin: auto;
+  position: absolute;
+  align-items: center;
 }
+
+.login{
+  transform: translate(90%,-135%);
+}
+
+.signup{
+  transform: translate(90%,-108%);
+}
+
 .wrapper-authentication h2{
   position: relative;
   font-size: 22px;
@@ -53,8 +62,8 @@
   background: #03b821;
 }
 
-.wrapper-authentication form{
-  margin-top: 2px;
+.wrapper-authentication > form{
+  /* margin-top: 2px; */
   width: 450px;
 }
 .wrapper-authentication form .input-box{
@@ -74,10 +83,6 @@ form .input-box input{
   border-radius: 6px;
   transition: all 0.3s ease;
 }
-/* .input-box input:focus,
-.input-box input:valid{
-  border-color: #4070f4;
-} */
 form .policy{
   display: flex;
   align-items: center;
