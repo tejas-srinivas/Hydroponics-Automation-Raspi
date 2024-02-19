@@ -2,17 +2,17 @@ from time import gmtime,strftime
 import time
 import board
 import adafruit_bh1750
+import os
+from dotenv import load_dotenv
 from pymongo import MongoClient
 from datetime import datetime
-from demo_PH_read import read_ph
 import Adafruit_DHT
-import sys
 import RPi.GPIO as GPIO
 from DFRobot_ADS1115 import ADS1115
 from DFRobot_PH      import DFRobot_PH
 from DFRobot_EC      import DFRobot_EC
 
-# Setup GPIO Pins for sensor
+# Config Pins
 exhaust_pin = 17
 motor1_pin = 27
 motor2_pin = 5
@@ -20,6 +20,7 @@ motor3_pin = 13
 motor4_pin = 6
 growlight_pin = 19
 
+# Setup GPIO Pins for sensors
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(exhaust_pin,GPIO.OUT)
 GPIO.setup(motor1_pin,GPIO.OUT)
@@ -28,18 +29,28 @@ GPIO.setup(motor3_pin,GPIO.OUT)
 GPIO.setup(motor4_pin,GPIO.OUT)
 GPIO.setup(growlight_pin,GPIO.OUT)
 
-# Replace with your MongoDB connection details
-MONGODB_URI = 'mongodb+srv://rootUser:root@smarthydro.zpntnvu.mongodb.net/?retryWrites=true&w=majority'
-DATABASE_NAME = 'hydroponic_data'
-COLLECTION_NAME = 'sensor_data'
-COLLECTION_LOG = 'logs'
-
 ADS1115_REG_CONFIG_PGA_6_144V        = 0x00 # 6.144V range = Gain 2/3
 ADS1115_REG_CONFIG_PGA_4_096V        = 0x02 # 4.096V range = Gain 1
 ADS1115_REG_CONFIG_PGA_2_048V        = 0x04 # 2.048V range = Gain 2 (default)
 ADS1115_REG_CONFIG_PGA_1_024V        = 0x06 # 1.024V range = Gain 4
 ADS1115_REG_CONFIG_PGA_0_512V        = 0x08 # 0.512V range = Gain 8
 ADS1115_REG_CONFIG_PGA_0_256V        = 0x0A # 0.256V range = Gain 16
+
+ads1115 = ADS1115()
+#Set the IIC address
+ads1115.setAddr_ADS1115(0x48)
+#Sets the gain and input voltage range.
+ads1115.setGain(ADS1115_REG_CONFIG_PGA_4_096V)
+
+# Replace with your MongoDB connection details
+load_dotenv()
+DATABASE_USER = os.getenv("DATABASE_USER")
+DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD")
+CLUSTER_NAME =  os.getenv('CLUSTER_NAME')
+MONGODB_URI = f"mongodb+srv://{DATABASE_USER}:{DATABASE_PASSWORD}@{CLUSTER_NAME}.zpntnvu.mongodb.net/?retryWrites=true&w=majority"
+DATABASE_NAME = os.getenv('DATABASE')
+COLLECTION_NAME = os.getenv('COLLECTION_NAME')
+COLLECTION_LOG = os.getenv('COLLECTION_LOG')
 
 # Function to connect to MongoDB and insert data
 def send_data_to_mongodb(temperature, humidity, ph, ec, lux, timestamp):
@@ -64,7 +75,8 @@ def send_data_to_mongodb(temperature, humidity, ph, ec, lux, timestamp):
 
     finally:
         client.close()
-        
+
+# Send log messages to the logs collection in MongoDB
 def send_logs_to_mongodb(status):
     try:
         client = MongoClient(MONGODB_URI)
@@ -84,7 +96,6 @@ def send_logs_to_mongodb(status):
     finally:
         client.close()
     
-    
 def turn_on_motor_1():
     GPIO.output(motor1_pin,GPIO.LOW)
     time.sleep(3)
@@ -97,19 +108,13 @@ def turn_on_motor_2():
     
 def turn_on_motor3():
     GPIO.output(motor3_pin,GPIO.LOW)
-    time.sleep(5)
+    time.sleep(3)
     GPIO.output(motor3_pin,GPIO.HIGH)
 
 def turn_on_motor4():
     GPIO.output(motor4_pin,GPIO.LOW)
-    time.sleep(5)
+    time.sleep(3)
     GPIO.output(motor4_pin,GPIO.HIGH)
-
-ads1115 = ADS1115()
-#Set the IIC address
-ads1115.setAddr_ADS1115(0x48)
-#Sets the gain and input voltage range.
-ads1115.setGain(ADS1115_REG_CONFIG_PGA_4_096V)
 
 # Simulated function to read temperature and humidity (replace with actual sensor readings)
 def read_temperature_and_humidity():
@@ -139,7 +144,16 @@ def read_ec_sensor():
 	#Convert voltage to EC with temperature compensation
     EC = ec.readEC(adc2['r'],temp)
     return EC
-    
+
+# function to read Light Intensity
+def get_light_intensity():
+    i2c = board.I2C()
+    sensor = adafruit_bh1750.BH1750(i2c)
+    lux_value = sensor.lux
+    lux_value = round(lux_value,2)
+    return lux_value
+
+# function to get all sensors data
 def get_sensor_data():
     # Read sensor values
     temperature, humidity = read_temperature_and_humidity()
@@ -151,53 +165,51 @@ def get_sensor_data():
     # Get the current timestamp
     timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
     return temperature, humidity, ph, ec, lux_value, timestamp
-    
-def get_light_intensity():
-    i2c = board.I2C()
-    sensor = adafruit_bh1750.BH1750(i2c)
-    lux_value = sensor.lux
-    lux_value = round(lux_value,2)
-    return lux_value
 
+# Turns ON/OFF the PH Up Motor
 def ph_up_condition():
-    print("Turning on PH Up Motor")
-    status = "Turning on PH Up Motor"
+    print("PH is Low, Turning on PH Up Motor")
+    status = "PH is Low, Turning on PH Up Motor"
     send_logs_to_mongodb(status)
     turn_on_motor_1()
     print("Turning off PH Up Motor")
     status = "Turning off PH Up Motor"
     send_logs_to_mongodb(status)
 
+# turns ON/OFF the PH Down Motor
 def ph_down_condition():
-    print("Turning on PH Down Motor")
-    status = "Turning on PH Down Motor"
+    print("PH is High, Turning on PH Down Motor")
+    status = "PH is High, Turning on PH Down Motor"
     send_logs_to_mongodb(status)
     turn_on_motor_2()
     print("Turning off PH Down Motor")
     status = "Turning off PH Down Motor"
     send_logs_to_mongodb(status)
 
+# turns ON/OFF the EC Up Motor
 def ec_up_condition():
-    print("Turning on Nutrients Motor 3")
-    status = "Turning on Nutrients Motor 3"
+    print("EC is low, Turning ON Nutrients Motor 3")
+    status = "EC is low, Turning ON Nutrients Motor 3"
     send_logs_to_mongodb(status)
     turn_on_motor3()
     print("Turning off Nutrients Motor 3")
     status = "Turning off Nutrients Motor 3"
     send_logs_to_mongodb(status)
 
+# turns ON/OFF the EC Down Motor
 def ec_down_condition():
-    print("Pumping water from Motor4")
-    status = "Pumping water from Motor4"
+    print("EC is high, Pumping water from Motor 4")
+    status = "EC is high, Pumping water from Motor 4"
     send_logs_to_mongodb(status)
     turn_on_motor4()
-    print("Turning off Motor4")
-    status = "Turning off Motor4"
+    print("Turning off Motor 4")
+    status = "Turning off Motor 4"
     send_logs_to_mongodb(status)
 
 try:
     GPIO.output(growlight_pin,GPIO.HIGH)
     GPIO.output(exhaust_pin,GPIO.HIGH)
+    print("Press Ctrl + C to exit program")
     while True:
         time.sleep(1)
         temp, humid, ph, ec, lux, timestamp = get_sensor_data()
@@ -209,74 +221,78 @@ try:
         print("Sending sensor data to database.................................")
         send_data_to_mongodb(temp, humid, ph, ec, lux, timestamp)
         
+        # Check Temperature Condition
         if temp > 28 :
+            print("Temperature is too high, Exhaust is ON")
             GPIO.output(exhaust_pin,GPIO.LOW)
         else:
+            print("Temperature is Good, Exhaust is OFF")
             GPIO.output(exhaust_pin,GPIO.HIGH)
-            
+
+        # Check Intensity Condition   
         if lux < 5000 :
+            print("Light Intensity is Low, Grow Lights is ON")
             GPIO.output(exhaust_pin,GPIO.LOW)
         else :
+            print("Light Intensity is Good, Grow Lights is OFF")
             GPIO.output(exhaust_pin,GPIO.HIGH)
         
+        # Check EC Down Condition
         if ec < 1.8:
             ec_up_condition()
-            time.sleep(900) # Wait for 15 minutes before checking EC Value
+            time.sleep(60*5) # Wait for 5 minutes after checking EC Value
 
             if ph < 5.5:
                 ph_up_condition()
-                time.sleep(900) # Wait for 15 minutes before checking PH Value
+                time.sleep(60*10) # Wait for 10 minutes after pumping
                 
             if ph > 6.6:
                 ph_down_condition()
-                time.sleep(900)  # Wait for 15 minutes before checking the pH Value
+                time.sleep(60*10)  # Wait for 10 minutes after pumping
                 
             if ph > 5.2 and ph < 6.8:  
                 print("PH levels are optimum")
                 status = "PH levels are optimum"
                 send_logs_to_mongodb(status)
-                time.sleep(900)   # Check every 15 Minutes
             print("")
-            
-        if ec >= 2.3:
+        
+        # Check EC Up Condition
+        if ec > 2.3:
             ec_down_condition()
-            time.sleep(900) # Wait for 15 minutes before checking EC again
+            time.sleep(60*5) # Wait for 5 minutes after checking EC value
             
             if ph < 5.5:
                 ph_up_condition()
-                time.sleep(900) # Wait for 15 minutes before checking the pH Value
+                time.sleep(60*10) # Wait for 10 minutes after pumping
                 
             if ph > 6.6:
                 ph_down_condition()
-                time.sleep(900) # Wait for 15 minutes before checking the pH Value
+                time.sleep(60*10) # Wait for 10 minutes after pumping
                 
             if ph > 5.2 and ph < 6.8:  
                 print("PH levels are optimum")
                 status = "PH levels are optimum"
                 send_logs_to_mongodb(status)
-                time.sleep(900) # Wait for 15 minutes before checking the pH Value 
             print("")
             
-            
+        # Check for EC Optimal Condition    
         if ec > 1.8 and ec < 2.3:
             print("EC levels are optimum")
             status = "EC levels are optimum"
             send_logs_to_mongodb(status)
-            time.sleep(900)  # Wait for 15 minutes before checking the EC Value
 
             if ph < 5.5:
                 ph_up_condition()
-                time.sleep(900) # Wait for 15 minutes before checking the pH Value
+                time.sleep(60*10) # Wait for 10 minutes after checking the pH Value
 
             if ph > 6.6:
                 ph_down_condition()
-                time.sleep(900) # Wait for 15 minutes before checking the pH Value
+                time.sleep(60*10) # Wait for 10 minutes after checking the pH Value
                 
             if ph > 5.2 and ph < 6.8:  
                 print("PH levels are optimum")
                 status = "PH levels are optimum"
                 send_logs_to_mongodb(status)
-                time.sleep(900) # Wait for 15 minutes before checking the pH Value
             print("")
             
         print(".........................SENSOR DATA.............................")
@@ -288,8 +304,10 @@ try:
         print("..................................................................")
         print("\n")
         # Adjust the interval as needed
-        time.sleep(900)
-        #print("fetching data from sensor.......................................")
+        print("Waiting for 15 minutes")
+        time.sleep(900) # Wait for 15 minutes before taking another reading
+        print("fetching data from sensor.........................................")
+        print("\n")
 
 except KeyboardInterrupt:
     pass
