@@ -197,8 +197,11 @@ try:
             send_logs_to_mongodb(status, timestamp)
             turn_on_motor3()
             print("Turning off Nutrients Motor 3")
-            
-            
+            status = "Turning off Nutrients Motor 3"
+            timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
+            send_logs_to_mongodb(status, timestamp)
+            time.sleep(900) # Wait for 15 minutes before checking EC Value
+
             if ph < 5.5:
                 print("Turning on PH Up Motor")
                 status = "Turning on PH Up Motor"
@@ -206,6 +209,10 @@ try:
                 send_logs_to_mongodb(status, timestamp)
                 turn_on_motor_1()
                 print("Turning off PH Up Motor")
+                status = "Turning off PH Up Motor"
+                timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
+                send_logs_to_mongodb(status, timestamp)
+                time.sleep(900) # Wait for 15 minutes before checking PH Value
                 
                 
             if ph > 6.6:
@@ -214,7 +221,11 @@ try:
                 timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
                 send_logs_to_mongodb(status, timestamp)
                 turn_on_motor_2()
-                print("Turning on PH Down Motor")
+                print("Turning off PH Down Motor")
+                status = "Turning off PH Down Motor"
+                timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
+                send_logs_to_mongodb(status, timestamp)
+                time.sleep(900)  # Wait for 15 minutes before checking the pH Value
                 
             
             if ph > 5.2 and ph < 6.8:  
@@ -222,7 +233,7 @@ try:
                 status = "PH levels are optimum"
                 timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
                 send_logs_to_mongodb(status, timestamp)
-                time.sleep(5)  
+                time.sleep(900)   # Check every 15 Minutes
             print("")
             
         if ec >= 2.3:
@@ -231,7 +242,11 @@ try:
             timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
             send_logs_to_mongodb(status, timestamp)
             turn_on_motor4()
-            print("Turn off Motor4")
+            print("Turning off Motor4")
+            status = "Turning off Motor4"
+            timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
+            send_logs_to_mongodb(status, timestamp)
+            time.sleep(900) # Wait for 15 minutes before checking EC again
             
             if ph < 5.5:
                 print("Turning on PH Up Motor")
@@ -240,7 +255,10 @@ try:
                 send_logs_to_mongodb(status, timestamp)
                 turn_on_motor_1()
                 print("Turning off PH Up Motor")
-                
+                status = "Turning off PH Up Motor"
+                timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
+                send_logs_to_mongodb(status, timestamp)
+                time.sleep(900) # Wait for 15 minutes before checking the pH Value
                 
             if ph > 6.6:
                 print("Turning on PH Down Motor")
@@ -248,7 +266,11 @@ try:
                 timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
                 send_logs_to_mongodb(status, timestamp)
                 turn_on_motor_2()
-                print("Turning on PH Down Motor")
+                print("Turning off PH Down Motor")
+                status = "Turning off PH Down Motor"
+                timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
+                send_logs_to_mongodb(status, timestamp)
+                time.sleep(900) # Wait for 15 minutes before checking the pH Value
                 
             
             if ph > 5.2 and ph < 6.8:  
@@ -256,7 +278,7 @@ try:
                 status = "PH levels are optimum"
                 timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
                 send_logs_to_mongodb(status, timestamp)
-                time.sleep(5)  
+                time.sleep(900) # Wait for 15 minutes before checking the pH Value 
             print("")
             
             
@@ -265,7 +287,8 @@ try:
             status = "EC levels are optimum"
             timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
             send_logs_to_mongodb(status, timestamp)
-            time.sleep(5)
+            time.sleep(900)  # Wait for 15 minutes before checking the EC Value
+
             if ph < 5.5:
                 print("Turning on PH Up Motor")
                 status = "Turning on PH Up Motor"
@@ -273,27 +296,32 @@ try:
                 send_logs_to_mongodb(status, timestamp)
                 turn_on_motor_1()
                 print("Turning off PH Up Motor")
-                
-                
+                status = "Turning off PH Up Motor"
+                timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
+                send_logs_to_mongodb(status, timestamp)
+                time.sleep(900) # Wait for 15 minutes before checking the pH Value
+
             if ph > 6.6:
                 print("Turning on PH Down Motor")
                 status = "Turning on PH Down Motor"
                 timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
                 send_logs_to_mongodb(status, timestamp)
                 turn_on_motor_2()
-                print("Turning of PH Down Motor")
+                print("Turning off PH Down Motor")
+                status = "Turning off PH Down Motor"
+                timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
+                send_logs_to_mongodb(status, timestamp)
+                time.sleep(900) # Wait for 15 minutes before checking the pH Value
                 
-            
             if ph > 5.2 and ph < 6.8:  
                 print("PH levels are optimum")
                 status = "PH levels are optimum"
                 timestamp = time.strftime("%a %b %d %Y %I:%M:%S %p %Z",time.gmtime())
                 send_logs_to_mongodb(status, timestamp)
-                time.sleep(5)  
+                time.sleep(900) # Wait for 15 minutes before checking the pH Value
             print("")
             
-        
-        print("..................................................................")
+        print(".........................SENSOR DATA.............................")
         print("PH:",ph)
         print("EC:",ec)
         print("Temperature:",temp)
@@ -302,7 +330,7 @@ try:
         print("..................................................................")
 
         # Adjust the interval as needed
-        time.sleep(10)
+        time.sleep(900)
         #print("fetching data from sensor.......................................")
 
 except KeyboardInterrupt:
