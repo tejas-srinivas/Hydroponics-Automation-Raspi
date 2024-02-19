@@ -1,0 +1,2 @@
+kvalueLow=1.465
+kvalueHigh=1.95
