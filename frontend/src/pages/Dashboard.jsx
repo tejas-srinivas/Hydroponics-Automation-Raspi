@@ -58,7 +58,7 @@ const Dashboard = ({name, title}) => {
                 <nav>
                     <div class="sidebar-button">
                         <span class="dashboard">Dashboard</span>
-                        <code style={{position:"absolute", margin:"auto", marginLeft:"48%", textAlign:"center", fontWeight:"500", fontSize:"18px"}}>Last Fetch: {moment(data.timestamp).format('lll')}</code>
+                        <code style={{position:"absolute", margin:"auto", marginLeft:"46%", textAlign:"center", fontWeight:"500", fontSize:"18px"}}>Last Fetch: {moment(data.timestamp).format('lll')}</code>
                         <Signout name={name} />
                     </div>
                 </nav>
