@@ -240,7 +240,7 @@ try:
         # Check EC Down Condition
         if ec < 1.8:
             ec_up_condition()
-            time.sleep(60*5) # Wait for 5 minutes after checking EC Value
+            time.sleep(60*10) # Wait for 10 minutes after checking EC Value
 
             if ph < 5.5:
                 ph_up_condition()
@@ -259,7 +259,7 @@ try:
         # Check EC Up Condition
         if ec > 2.3:
             ec_down_condition()
-            time.sleep(60*5) # Wait for 5 minutes after checking EC value
+            time.sleep(60*10) # Wait for 10 minutes after checking EC value
             
             if ph < 5.5:
                 ph_up_condition()
