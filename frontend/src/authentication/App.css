@@ -17,7 +17,7 @@
 }
 
 .body{
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,11 +38,13 @@
 }
 
 .login{
-  transform: translate(90%,-135%);
+  top:22%;
+  left: 34%;
 }
 
 .signup{
-  transform: translate(90%,-108%);
+  top:5%;
+  left: 34%;
 }
 
 .wrapper-authentication h2{
@@ -63,7 +65,6 @@
 }
 
 .wrapper-authentication > form{
-  /* margin-top: 2px; */
   width: 450px;
 }
 .wrapper-authentication form .input-box{
