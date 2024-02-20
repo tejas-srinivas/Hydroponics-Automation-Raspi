@@ -10,16 +10,19 @@ The goal of this research project was to design, build, and test a low-cost prot
 ![Screenshot of the Crops](frontend/src/Images/Crops.jpg?raw=true "Hydroponic Crops")
 
 ## Hardware Requirements
-`1. Raspbery Pi - 4/5 Model`
-`2. pH Sensor - DFRobot`
-`3. EC Sensor - DFRobot`
-`4. Temperature, Humidity Sensor - DHT11 / DHT22`
-`5. Light Intensity Sensor - BH1750`
-`6. 8x Channel Relay Module`
-`7. 5 AC Motors`
-`8. Grow Lights for Hydroponics`
-`9. Analog to Digital Converters - ADS1115`
-`10. Webcam for Pest Dectection / Live Monitoring`
+1. Raspbery Pi - 4/5 Model
+2. pH Sensor - DFRobot
+3. EC Sensor - DFRobot
+4. Temperature, Humidity Sensor - DHT11 / DHT22
+5. Light Intensity Sensor - BH1750
+6. 8x Channel Relay Module
+7. 5 AC Motors
+8. Grow Lights for Hydroponics
+9. Analog to Digital Converters - ADS1115
+10. Webcam for Pest Dectection / Live Monitoring
+
+## System Architecture Model
+![Screenshot of the Crops](frontend/src/Images/Architecture.jpg?raw=true "Hydroponic Crops")
 
 ## Glimpse of the website
 ## [Link](https://smarthydroponics.vercel.app/)
