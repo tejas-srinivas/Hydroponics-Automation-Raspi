@@ -232,10 +232,10 @@ try:
         # Check Intensity Condition   
         if lux < 5000 :
             print("Light Intensity is Low, Grow Lights is ON")
-            GPIO.output(exhaust_pin,GPIO.LOW)
+            GPIO.output(growlight_pin,GPIO.LOW)
         else :
             print("Light Intensity is Good, Grow Lights is OFF")
-            GPIO.output(exhaust_pin,GPIO.HIGH)
+            GPIO.output(growlight_pin,GPIO.HIGH)
         
         # Check EC Down Condition
         if ec < 1.8:
