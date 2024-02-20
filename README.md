@@ -1,6 +1,16 @@
 # Automation of Hydroponic Farming System using IoT [RasPi]
 
-This Website is built using React.js and CSS which is adaptable on small or large screens.
+## Electronics Required
+###`1. Raspbery Pi - 4/5 Model
+2. pH Sensor - DFRobot
+3. EC Sensor - DFRobot
+4. Temperature, Humidity Sensor - DHT11 / DHT22
+5. Light Intensity Sensor - BH1750
+6. 8x Channel Relay Module
+7. 5 AC Motors
+8. Grow Lights for Hydroponics
+9. Analog to Digital Converters - ADS1115
+10. Webcam for Pest Dectection / Live Monitoring`
 
 ## Glimpse of the website
 ## [Link](https://smarthydroponics.vercel.app/)
@@ -10,8 +20,6 @@ This Website is built using React.js and CSS which is adaptable on small or larg
 ## Dashboard
 ![Screenshot of Web Dashboard](frontend/src/Images/Dashboard.png?raw=true "Dashboard")
 
-## Getting Started with Create-React-App
-
 This Project is built using.\
 1. React.JS (Inerfaces)
 2. Python Flask (Api Handling)
@@ -20,7 +28,6 @@ This Project is built using.\
 
 To see the live demo, visit: https://smarthydroponics.vercel.app/ 
 ## [Link](https://smarthydroponics.vercel.app/)
-
 
 Dependencies of React App
 
