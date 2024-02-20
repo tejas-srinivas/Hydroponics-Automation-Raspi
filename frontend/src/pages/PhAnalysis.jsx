@@ -25,7 +25,7 @@ const PhAnalysis = ({name}) => {
 
   useEffect(() => {
     fetchPhData()
-    const intervalId = setInterval(fetchPhData, 61000);
+    const intervalId = setInterval(fetchPhData, 60001*15);
 
     return () => clearInterval(intervalId);
   }, [])

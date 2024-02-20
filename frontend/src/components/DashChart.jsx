@@ -45,7 +45,7 @@ const DashChart = () => {
 
     useEffect(() => {
         fetchSensorData()
-        const intervalId = setInterval(fetchSensorData, 10000);
+        const intervalId = setInterval(fetchSensorData, 60001*15);
 
         return () => clearInterval(intervalId);
     }, [])

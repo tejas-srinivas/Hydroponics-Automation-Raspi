@@ -27,7 +27,7 @@ const TempAnalysis = ({name}) => {
 
   useEffect(() => {
     fetchTempData()
-    const intervalId = setInterval(fetchTempData, 61000);
+    const intervalId = setInterval(fetchTempData, 60001*15);
 
     return () => clearInterval(intervalId);
   }, [])

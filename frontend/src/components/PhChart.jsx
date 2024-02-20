@@ -44,7 +44,7 @@ const PhChart = () => {
 
     useEffect(() => {
         fetchSensorData()
-        const intervalId = setInterval(fetchSensorData, 61000);
+        const intervalId = setInterval(fetchSensorData, 60001*15);
 
         return () => clearInterval(intervalId);
     }, [])

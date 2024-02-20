@@ -340,8 +340,14 @@ tr:nth-child(even) {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 2rem;
-  // line-height: 60%;
   margin: 8% 5% 10%;
+  padding: 35px 1px 35px 1px;
+}
+
+.features1{
+  background-color: #e7e7e7;
+  margin-top: -4%;
+  margin-bottom: -10%;
 }
 
 .features {

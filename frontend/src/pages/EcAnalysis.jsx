@@ -27,7 +27,7 @@ const EcAnalysis = ({name}) => {
 
   useEffect(() => {
     fetchEcData()
-    const intervalId = setInterval(fetchEcData, 61000);
+    const intervalId = setInterval(fetchEcData, 60001*15);
 
     return () => clearInterval(intervalId);
   }, [])

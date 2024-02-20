@@ -24,7 +24,7 @@ const Dashboard = ({name, title}) => {
     document.title = title
     // const name = "Ghost"
 
-    const random = async () => {
+    const sensor_data = async () => {
 
         const baseURL = "https://smarthydro-auth-api.onrender.com"
         try {
@@ -44,9 +44,8 @@ const Dashboard = ({name, title}) => {
     }
 
     useEffect(() => {
-        random()
-        const intervalId = setInterval(random, 10000);
-
+        sensor_data()
+        const intervalId = setInterval(sensor_data, 60001*15);
         return () => clearInterval(intervalId);
     }, [])
 

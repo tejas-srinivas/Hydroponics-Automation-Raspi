@@ -38,8 +38,8 @@ const Landing = () => {
             <ul className='nav-menu'>
               <li className='nav-item'><a href="#home" className='nav-link'>Home</a></li>
               <li className='nav-item'><a href="#about" className='nav-link'>About</a></li>
-              <li className='nav-item'><a href="#features" className='nav-link'>Features</a></li>
               <li className='nav-item'><a href="#usage" className='nav-link'>Usage</a></li>
+              <li className='nav-item'><a href="#features" className='nav-link'>Features</a></li>
               <li className='nav-item'><a href="/login" className='nav-link'>Login</a></li>
               <li className="nav-item"><a href="/signup" className='nav-link' style={{ color: "#f5f5f5", backgroundColor: "#00d411", padding: "5px 30px 5px 30px", borderRadius: "12px", boxShadow: "0 2px 15px rgba(80,64,80,.9)" }}>Sign Up</a></li>
             </ul>
@@ -57,10 +57,10 @@ const Landing = () => {
         <a className='get-started' href="#about" style={{ textDecoration: "none", fontSize: "20px", color: "#f5f5f5", backgroundColor: "#00d411", padding: "15px 30px 15px 30px", borderRadius: "20px", boxShadow: "rgb(154 149 154 / 29%) 0px 2px 15px" }}>Get Started</a>
       </div>
       {/* =================================== About Project =========================================== */}
-      <div className="about-section" id="about">
+      <div className="about-section">
         <h2 className='headings' style={{ height: "30vh", color: "#5c2a03" }}>Vision Group of Science and Technology (VGST)</h2>
         <div className="content">
-          <img src={VgstLogo} alt="vgstLogo" />
+          <img src={VgstLogo} alt="vgstLogo" width="250" height="200" />
           <div className="vertical-line"></div>
           <div className="project-details">
             <h3>Project ID : {projectDetails}</h3>
@@ -73,7 +73,7 @@ const Landing = () => {
         <img src={Sjbit} alt="sjbitLogo" className='center' />
       </div>
       {/* =================================== feautures =========================================== */}
-      <div className="about-section" id="features">
+      <div className="about-section" id="about">
         <h2 className='headings' style={{ height: "30vh", color: "#5c2a03" }}>Hydroponics using Deep Flow Technique</h2>
         <div className="content">
           <img src={Image1} alt="vgstLogo" width="400px" height="300px" />
@@ -84,7 +84,7 @@ const Landing = () => {
           </div>
         </div>
         <br />
-        <br />
+        
         <div className="usage" id="usage">
           <div className="content" style={{ flexDirection: "row-reverse" }}>
             <img src={Collage} alt="collage" width="1000px" height="600px" />
@@ -95,8 +95,8 @@ const Landing = () => {
             </div>
           </div>
         </div>
-        <div className='features' style={{}}>
-          <Features />
+        <div className='features1' id="features">
+          <Features style={{}}/>
         </div>
       </div>
       {/* =================================== footer =========================================== */}
