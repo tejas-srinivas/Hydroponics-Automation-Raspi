@@ -1,3 +1,0 @@
-pip install protobuf==3.20.*
-python -m pip install --upgrade tflite-support==0.4.2
-python -m pip install --upgrade tflite-runtime==2.11.0
