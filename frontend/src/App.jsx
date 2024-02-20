@@ -15,6 +15,7 @@ import Signup from "./authentication/SignUp";
 import useAuth from "./authentication/auth";
 import Logs from "./pages/Logs";
 
+
 function App() {
 
     const user = localStorage.getItem('email')
