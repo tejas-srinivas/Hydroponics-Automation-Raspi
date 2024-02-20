@@ -1,4 +1,4 @@
-# Real Time Analysis For Hydroponics Using React
+# Automation of Hydroponic Farming System using ToT [RasPi]
 
 This Website is built using React.js and CSS which is adaptable on small or large screens.
 
