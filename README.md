@@ -1,16 +1,16 @@
 # Automation of Hydroponic Farming System using IoT [RasPi]
 
 ## Electronics Required
-###`1. Raspbery Pi - 4/5 Model
-2. pH Sensor - DFRobot
-3. EC Sensor - DFRobot
-4. Temperature, Humidity Sensor - DHT11 / DHT22
-5. Light Intensity Sensor - BH1750
-6. 8x Channel Relay Module
-7. 5 AC Motors
-8. Grow Lights for Hydroponics
-9. Analog to Digital Converters - ADS1115
-10. Webcam for Pest Dectection / Live Monitoring`
+`1. Raspbery Pi - 4/5 Model`
+`2. pH Sensor - DFRobot`
+`3. EC Sensor - DFRobot`
+`4. Temperature, Humidity Sensor - DHT11 / DHT22`
+`5. Light Intensity Sensor - BH1750`
+`6. 8x Channel Relay Module`
+`7. 5 AC Motors`
+`8. Grow Lights for Hydroponics`
+`9. Analog to Digital Converters - ADS1115`
+`10. Webcam for Pest Dectection / Live Monitoring`
 
 ## Glimpse of the website
 ## [Link](https://smarthydroponics.vercel.app/)
