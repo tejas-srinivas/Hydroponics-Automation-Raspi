@@ -3,7 +3,8 @@ import { Icon } from '@iconify/react';
 import BoxImage from "../Images/box-image.png"
 import BoxImage2 from "../Images/box-image2.png"
 import BoxImage3 from "../Images/box-image3.png"
-import BoxImage4 from "../Images/box-image4.png"
+import BoxImage5 from "../Images/box-image5.png"
+import BoxImage6 from "../Images/box-image6.png"
 import GaugeChart from "../components/GaugeChart";
 import HumidtyGauge from "../components/HumidtyGauge";
 import Sidebar from "../components/Sidebar"
@@ -18,7 +19,8 @@ const Dashboard = ({ name, title, baseURL }) => {
         temperature: "",
         humidity: "",
         pH: "",
-        ec: ""
+        ec: "",
+        lux:""
     })
     console.log(baseURL)
     document.title = title
@@ -65,17 +67,27 @@ const Dashboard = ({ name, title, baseURL }) => {
                     <div class="overview-boxes">
                         <div class="box">
                             <div class="right-side">
-                                <i class="bx bxs-thermometer readings"></i>
-                                <span>Temperature</span>
+                                <Icon icon="mingcute:light-line" color="#25523d" />&nbsp;
+                                <span>Light Level</span>
                                 <br></br>
-                                <span className="data" style={{ "color": data.temperature > 28 ? "red" : "green" }}>{data.temperature} ºC {data.temperature > 28 ? "▲" : "▼"}</span>
+                                <span className="data" style={{ "color": data.lux > 28 ? "green" : "red" }}>{data.lux} Lux {data.lux > 5000 ? "▲" : "▼"}</span>
                             </div>
                             <img src={BoxImage} alt="box-image1" className="box-image" />
                             {/* <i class="bx bxs-thermometer readings"></i> */}
                         </div>
                         <div class="box">
                             <div class="right-side">
-                                <i class="bx bxs-droplet-half readings two"></i>
+                                <i class="bx bxs-thermometer readings"></i>
+                                <span>Temperature</span>
+                                <br></br>
+                                <span className="data" style={{ "color": data.temperature > 28 ? "red" : "green" }}>{data.temperature} ºC {data.temperature > 28 ? "▲" : "▼"}</span>
+                            </div>
+                            <img src={BoxImage5} alt="box-image1" className="box-image" />
+                            {/* <i class="bx bxs-thermometer readings"></i> */}
+                        </div>
+                        <div class="box">
+                            <div class="right-side">
+                                <i class="bx bxs-droplet-half readings two"></i>&nbsp;
                                 <span>Humidity</span>
                                 <br></br>
                                 <span className="data" id="humidity" style={{ "color": data.humidity > 60 ? "red" : "green" }}>{data.humidity} % {data.humidity > 60 ? "▲" : "▼"}</span>
@@ -85,7 +97,7 @@ const Dashboard = ({ name, title, baseURL }) => {
                         </div>
                         <div class="box">
                             <div class="right-side">
-                                <Icon icon="zondicons:thermometer" rotate={2} color="#25523d" />
+                                <Icon icon="zondicons:thermometer" rotate={2} color="#25523d" />&nbsp;
                                 <span>pH</span>
                                 <br></br>
                                 <span className="data" id="pressure" style={{ "color": data.ph > 6.5 ? "red" : "green" }}>{data.ph} H {data.ph > 6.5 ? "▲" : "▼"}</span>
@@ -95,19 +107,19 @@ const Dashboard = ({ name, title, baseURL }) => {
                         </div>
                         <div class="box">
                             <div class="right-side">
-                                <Icon icon="icomoon-free:lab" color="#25523d" />
+                                <Icon icon="icomoon-free:lab" color="#25523d" />&nbsp;
                                 <span>EC</span>
                                 <br></br>
                                 <span className="data" id="altitude" style={{ "color": data.ec > 2.4 ? "red" : "green" }}>{data.ec} ms/cm {data.ec > 2.3 ? "▲" : "▼"}</span>
                             </div>
                             {/* <i class="bx bxs-building readings four"></i> */}
-                            <img src={BoxImage4} alt="box-image4" className="box-image" />
+                            <img src={BoxImage6} alt="box-image4" className="box-image" />
                         </div>
                     </div>
                     <div class="graph-box">
                         <div class="history-charts">
                             <div class="title">Ph, EC Charts</div>
-                            <DashChart baseURL= {baseURL}/>
+                            <DashChart baseURL={baseURL} />
                         </div>
                         <div class="gaugeCharts">
                             <div class="title">Gauge Charts</div>

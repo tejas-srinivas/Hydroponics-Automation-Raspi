@@ -103,11 +103,11 @@ nav .sidebar-button i {
 .overview-boxes .box {
   display: flex;
   justify-content: flex-start;
-  width: 15%;
+  width: 11%;
   max-width: 250px;
   // background: linear-gradient(240deg, rgba(255,255,255,1) 54%, rgba(5,191,42,1) 100%);
   background: #ffffff;
-  padding: 25px 63px 17px 35px;
+  padding: 34px 75px 23px 19px;
   border-radius: 12px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -121,11 +121,12 @@ nav .sidebar-button i {
 .home-content .box-image {
   position: absolute;
   width: 100px;
-  height: 80px;
+  height: 70px;
   z-index: 1;
   opacity: 0.5;
-  margin-left: 8rem;
+  margin-left: 6rem;
   margin-top: -1rem;
+  mix-blend-mode: multiply;
 }
 
 .home-content .graph-box {
@@ -189,11 +190,11 @@ nav .sidebar-button i {
 }
 
 .overview-boxes .box:hover {
-  transform: scale(1.15);
+  transform: scale(1.10);
   transition: 0.5s ease;
   background: linear-gradient(225deg, rgba(255, 255, 255, 1) 36%, rgba(39, 235, 8, 1) 100%);
   // color: #f2f2f2;
-  transition: all 1 ease;
+  transition: all 1.5 ease;
 }
 
 .right-side span:hover {
@@ -201,13 +202,13 @@ nav .sidebar-button i {
 }
 
 .right-side {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 600;
   color: #25523b;
 }
 
 .right-side .data {
-  font-size: 20px;
+  font-size: 18px;
   color: #25523b;
 }
 
