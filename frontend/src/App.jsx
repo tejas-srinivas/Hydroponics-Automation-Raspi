@@ -34,7 +34,7 @@ function App() {
                     {user && (<Route path="/myaccount" element={<Myaccount name={name} baseURL={baseURL} />} />)}
                     {user && (<Route path="/logs" element={<Logs name={name} baseURL={baseURL} />} />)}
                     <Route path="/" element={<Landing />}></Route>
-                    <Route path="/login" exact element={<Login />} baseURL={baseURL} />
+                    <Route path="/login" exact element={<Login baseURL={baseURL} />} />
                     <Route path="/signup" exact element={<Signup baseURL={baseURL} />} />
                     <Route path="/*" element={<NotFound />}></Route>
                 </Routes>

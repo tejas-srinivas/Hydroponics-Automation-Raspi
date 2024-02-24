@@ -18,7 +18,7 @@ try:
                         GPIO.output(17,GPIO.LOW)
                 else:
                         GPIO.output(17,GPIO.HIGH)
-                print("Temp={0:0.1f}ºC, Temp={1:0.1f}ºF, Humidity={2:0.1f}%".format(temperature, temperatureF, humidity)
+                print("Temp={0:0.1f}ºC, Temp={1:0.1f}ºF, Humidity={2:0.1f}%".format(temperature, temperatureF, humidity))
             else:
                 GPIO.output(17,GPIO.HIGH)
                 print("Sensor failure. Check wiring.")

@@ -8,7 +8,7 @@ GPIO.setup(17,GPIO.OUT)
 
 i2c = board.I2C()
 sensor = adafruit_bh1750.BH1750(i2c)
-grow_light_pin = 9
+grow_light_pin = 19
 
 try:
     while True:
@@ -23,6 +23,7 @@ try:
             GPIO.output(grow_light_pin,GPIO.HIGH)
         print(lux_value)
         time.sleep(10)
+        
 except KeyboardInterrupt:
     pass
 
