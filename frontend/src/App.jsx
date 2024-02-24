@@ -15,27 +15,27 @@ import Signup from "./authentication/SignUp";
 import useAuth from "./authentication/auth";
 import Logs from "./pages/Logs";
 
-
 function App() {
 
     const user = localStorage.getItem('email')
     const name = localStorage.getItem('name')
     const {emailState} = useAuth()
+    const baseURL = "https://smarthydro-auth-api.onrender.com"
 
     return (
         <>
             <div className="App">
                 <Routes>
-                    {emailState ? (<Route path="/dashboard" element={<Dashboard name={name} title="Dashboard"/>} />) : (<Route path="/" element={<Landing />} />)}
-                    {user && (<Route path="/phAnalysis" exact element={<PhAnalysis name={name}/>} />)}
-                    {user && (<Route path="/ecAnalysis" element={<EcAnalysis name={name}/>} />)}
-                    {user && (<Route path="/tempAnalysis" element={<TempAnalysis name={name}/>} />)}
-                    {user && (<Route path="/summary" element={<Summary name={name}/>} />)}
-                    {user && (<Route path="/myaccount" element={<Myaccount name={name}/>} />)}
-                    {user && (<Route path="/logs" element={<Logs name={name}/>} />)}
+                    {emailState ? (<Route path="/dashboard" element={<Dashboard name={name} title="Dashboard" baseURL={baseURL}/>} />) : (<Route path="/" element={<Landing />} />)}
+                    {user && (<Route path="/phAnalysis" exact element={<PhAnalysis name={name} baseURL={baseURL} />} />)}
+                    {user && (<Route path="/ecAnalysis" element={<EcAnalysis name={name} baseURL={baseURL} />} />)}
+                    {user && (<Route path="/tempAnalysis" element={<TempAnalysis name={name} baseURL={baseURL} />} />)}
+                    {user && (<Route path="/summary" element={<Summary name={name} baseURL={baseURL} />} />)}
+                    {user && (<Route path="/myaccount" element={<Myaccount name={name} baseURL={baseURL} />} />)}
+                    {user && (<Route path="/logs" element={<Logs name={name} baseURL={baseURL} />} />)}
                     <Route path="/" element={<Landing />}></Route>
-                    <Route path="/login" exact element={<Login />} />
-                    <Route path="/signup" exact element={<Signup />} />
+                    <Route path="/login" exact element={<Login />} baseURL={baseURL} />
+                    <Route path="/signup" exact element={<Signup baseURL={baseURL} />} />
                     <Route path="/*" element={<NotFound />}></Route>
                 </Routes>
             </div>

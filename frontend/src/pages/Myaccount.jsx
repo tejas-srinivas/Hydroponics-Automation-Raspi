@@ -4,7 +4,7 @@ import Signout from '../components/Signout';
 import Profile from "../Images/avatar.jpg";
 import axios from 'axios';
 
-const Myaccount = ({ name }) => {
+const Myaccount = ({ name, baseURL }) => {
 
   const [namee, setName] = useState(localStorage.getItem('name'));
   const [email, setEmail] = useState(localStorage.getItem('email'));
@@ -24,7 +24,7 @@ const Myaccount = ({ name }) => {
       localStorage.setItem('name', namee);
       localStorage.setItem('email', email);
       const user_input = {"name": namee, "email": email, "password": password, "repassword": repassword};
-      await axios.put("https://smarthydro-auth-api.onrender.com/updateDetails", user_input)
+      await axios.put(`${baseURL}/updateDetails`, user_input)
       .then((res) => {
         setData(res.data)
         setName(data.name)

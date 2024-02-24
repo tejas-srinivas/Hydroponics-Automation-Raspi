@@ -4,10 +4,9 @@ import Signout from '../components/Signout';
 import axios from 'axios';
 import moment from 'moment/moment';
 
-const Logs = ({ name }) => {
+const Logs = ({ name, baseURL }) => {
 
     document.title = "IoT Logs"
-    const baseURL = "https://smarthydro-auth-api.onrender.com"
     const [logsData, setLogsData] = useState([])
     // const name = "Ghost"
     const fetchLogsData = async () => {

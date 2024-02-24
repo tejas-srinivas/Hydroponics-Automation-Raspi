@@ -12,7 +12,7 @@ import DashChart from "../components/DashChart";
 import Signout from "../components/Signout";
 import moment from 'moment/moment';
 
-const Dashboard = ({name, title}) => {
+const Dashboard = ({ name, title, baseURL }) => {
     // window.location.reload()
     const [data, setData] = useState({
         temperature: "",
@@ -20,13 +20,13 @@ const Dashboard = ({name, title}) => {
         pH: "",
         ec: ""
     })
-
+    console.log(baseURL)
     document.title = title
+    // const url = String(baseURL)
     // const name = "Ghost"
 
     const sensor_data = async () => {
 
-        const baseURL = "https://smarthydro-auth-api.onrender.com"
         try {
             await axios.get(`${baseURL}/real_time`)
                 .then(response => {
@@ -45,19 +45,19 @@ const Dashboard = ({name, title}) => {
 
     useEffect(() => {
         sensor_data()
-        const intervalId = setInterval(sensor_data, 60001*15);
+        const intervalId = setInterval(sensor_data, 60001 * 15);
         return () => clearInterval(intervalId);
     }, [])
 
 
     return (
         <>
-            <Sidebar name={name}/>
+            <Sidebar name={name} />
             <section class="home-section">
                 <nav>
                     <div class="sidebar-button">
                         <span class="dashboard">Dashboard</span>
-                        <code style={{position:"absolute", margin:"auto", marginLeft:"46%", textAlign:"center", fontWeight:"500", fontSize:"18px"}}>Last Fetch: {moment(data.timestamp).format('lll')}</code>
+                        <code style={{ position: "absolute", margin: "auto", marginLeft: "46%", textAlign: "center", fontWeight: "500", fontSize: "18px" }}>Last Fetch: {moment(data.timestamp).format('lll')}</code>
                         <Signout name={name} />
                     </div>
                 </nav>
@@ -65,7 +65,7 @@ const Dashboard = ({name, title}) => {
                     <div class="overview-boxes">
                         <div class="box">
                             <div class="right-side">
-                            <i class="bx bxs-thermometer readings"></i>
+                                <i class="bx bxs-thermometer readings"></i>
                                 <span>Temperature</span>
                                 <br></br>
                                 <span className="data" style={{ "color": data.temperature > 28 ? "red" : "green" }}>{data.temperature} ºC {data.temperature > 28 ? "▲" : "▼"}</span>
@@ -75,7 +75,7 @@ const Dashboard = ({name, title}) => {
                         </div>
                         <div class="box">
                             <div class="right-side">
-                        <i class="bx bxs-droplet-half readings two"></i>
+                                <i class="bx bxs-droplet-half readings two"></i>
                                 <span>Humidity</span>
                                 <br></br>
                                 <span className="data" id="humidity" style={{ "color": data.humidity > 60 ? "red" : "green" }}>{data.humidity} % {data.humidity > 60 ? "▲" : "▼"}</span>
@@ -85,7 +85,7 @@ const Dashboard = ({name, title}) => {
                         </div>
                         <div class="box">
                             <div class="right-side">
-                        <Icon icon="zondicons:thermometer"  rotate={2} color="#25523d" />
+                                <Icon icon="zondicons:thermometer" rotate={2} color="#25523d" />
                                 <span>pH</span>
                                 <br></br>
                                 <span className="data" id="pressure" style={{ "color": data.ph > 6.5 ? "red" : "green" }}>{data.ph} H {data.ph > 6.5 ? "▲" : "▼"}</span>
@@ -95,7 +95,7 @@ const Dashboard = ({name, title}) => {
                         </div>
                         <div class="box">
                             <div class="right-side">
-                        <Icon icon="icomoon-free:lab" color="#25523d" />
+                                <Icon icon="icomoon-free:lab" color="#25523d" />
                                 <span>EC</span>
                                 <br></br>
                                 <span className="data" id="altitude" style={{ "color": data.ec > 2.4 ? "red" : "green" }}>{data.ec} ms/cm {data.ec > 2.3 ? "▲" : "▼"}</span>
@@ -107,7 +107,7 @@ const Dashboard = ({name, title}) => {
                     <div class="graph-box">
                         <div class="history-charts">
                             <div class="title">Ph, EC Charts</div>
-                            <DashChart />
+                            <DashChart baseURL= {baseURL}/>
                         </div>
                         <div class="gaugeCharts">
                             <div class="title">Gauge Charts</div>

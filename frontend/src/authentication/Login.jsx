@@ -7,8 +7,7 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "./auth";
 import Loading from "../components/Loading";
 
-function Login() {
-  const baseURL = "https://smarthydro-auth-api.onrender.com"
+function Login({baseURL}) {
 
   const navigate = useNavigate()
   const [email, setEmail] = useState("");

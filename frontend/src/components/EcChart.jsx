@@ -26,9 +26,8 @@ Chart.register(
     Legend
 );
 
-const EcChart = () => {
+const EcChart = ({ baseURL }) => {
 
-    const baseURL = "https://smarthydro-auth-api.onrender.com"
     const [chartData, setChartData] = useState([])
     const fetchSensorData = async () => {
         try {

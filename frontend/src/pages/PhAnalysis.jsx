@@ -5,10 +5,9 @@ import axios from 'axios';
 import Signout from '../components/Signout';
 import moment from 'moment/moment';
 
-const PhAnalysis = ({name}) => {
+const PhAnalysis = ({name, baseURL}) => {
 
   document.title = "pH Analysis"
-  const baseURL = "https://smarthydro-auth-api.onrender.com"
   const [phsummary, setPhSummary] = useState([])
   // const name = "Ghost"
   const fetchPhData = async () => {
@@ -45,7 +44,7 @@ const PhAnalysis = ({name}) => {
           <div className="graph-box" >
             <div class="history-charts-1" style={{}}>
               <div class="title">Ph Analysis</div>
-              <PhChart />
+              <PhChart baseURL={baseURL} />
             </div>
           </div>
           <br></br>

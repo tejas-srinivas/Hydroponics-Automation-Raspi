@@ -5,10 +5,9 @@ import axios from 'axios';
 import moment from 'moment/moment';
 import Signout from '../components/Signout';
 
-const TempAnalysis = ({name}) => {
+const TempAnalysis = ({name, baseURL}) => {
 
   document.title = "Temp Analysis"
-  const baseURL = "https://smarthydro-auth-api.onrender.com"
   
   // State variables for data and loading status
   const [tempsummary, setTempSummary] = useState([])
@@ -47,7 +46,7 @@ const TempAnalysis = ({name}) => {
           <div className="graph-box" >
             <div class="history-charts-1" style={{}}>
               <div class="title">Temperature Analysis</div>
-              <TempChart />
+              <TempChart baseURL={baseURL} />
             </div>
           </div>
           <br></br>

@@ -5,10 +5,9 @@ import moment from 'moment/moment';
 import Signout from '../components/Signout';
 import * as XLSX from 'xlsx/xlsx.mjs'
 
-const Summary = ({ name }) => {
+const Summary = ({ name, baseURL }) => {
 
   document.title = "Summary Report"
-  const baseURL = "https://smarthydro-auth-api.onrender.com"
   const [summary, setSummary] = useState([])
   // const name = "Ghost"
   const fetchSensorData = async () => {

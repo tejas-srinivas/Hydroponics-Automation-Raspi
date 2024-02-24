@@ -26,9 +26,8 @@ Chart.register(
     Legend
 );
 
-const TempChart = () => {
+const TempChart = ({ baseURL }) => {
 
-    const baseURL = "https://smarthydro-auth-api.onrender.com"
     const [chartData, setChartData] = useState([])
     const fetchTempData = async () => {
         try {
@@ -39,7 +38,6 @@ const TempChart = () => {
         catch (error) {
             console.log(error)
         }
-        
     }
 
     useEffect(() => {
@@ -77,10 +75,7 @@ const TempChart = () => {
                 hoverRadius:4
                 }
             }
-            
         }
-
-        
 
     return (
         <div>

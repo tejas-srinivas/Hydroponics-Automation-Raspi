@@ -5,11 +5,9 @@ import axios from 'axios';
 import moment from 'moment/moment';
 import Signout from '../components/Signout';
 
-const EcAnalysis = ({name}) => {
+const EcAnalysis = ({name, baseURL}) => {
 
   document.title = "EC Analysis"
-  const baseURL = "https://smarthydro-auth-api.onrender.com"
-
   const [ecsummary, setEcSummary] = useState([])
   // const name = "Ghost"
   const fetchEcData = async () => {
@@ -47,7 +45,7 @@ const EcAnalysis = ({name}) => {
           <div className="graph-box" >
             <div class="history-charts-1" style={{}}>
               <div class="title">Ec Analysis</div>
-              <EcChart/>
+              <EcChart baseURL={baseURL}/>
             </div>
           </div>
           <br></br>
