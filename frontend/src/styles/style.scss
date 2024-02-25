@@ -208,7 +208,7 @@ nav .sidebar-button i {
 }
 
 .right-side .data {
-  font-size: 18px;
+  font-size: 17px;
   color: #25523b;
 }
 
@@ -425,6 +425,22 @@ tr:nth-child(even) {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 5rem;
+}
+
+.filterData {
+  border:none;
+  font-family:"Poppins";
+  border-radius:10px; 
+  background-color: #2db83d;
+  cursor: pointer;
+  color: #f2f2f2;
+  padding: 10px 25px 10px 25px;
+}
+
+.filterData.activated{
+  background-color: #cacaca;
+  color: #292929;
+  border: 2px solid black
 }
 
 // ==================================== Not Found Page =======================================
