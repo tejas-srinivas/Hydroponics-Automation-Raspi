@@ -7,7 +7,7 @@ import SidebarBack from "../Images/sidebar-background.jpeg"
 import Performance from "../Images/performance.svg";
 import Temperature from "../Images/temperature.svg";
 import Settings from "../Images/summary.svg";
-import Logs from "../Images/logs.svg";
+import Logs from "../Images/logs1.svg";
 import Support from "../Images/support.svg";
 import About from '../Images/about.svg'
 import { useLocation } from "react-router-dom";
