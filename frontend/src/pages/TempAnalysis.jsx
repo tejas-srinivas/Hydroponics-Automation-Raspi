@@ -34,18 +34,17 @@ const TempAnalysis = ({name, baseURL}) => {
   return (
     <div>
       <Sidebar name={name}/>
-      <section class="home-section">
+      <section className="home-section">
         <nav>
-          <div class="sidebar-button">
-            <span class="dashboard">Temperature Analysis</span>
+          <div className="sidebar-button">
+            <span className="dashboard">Temperature Analysis</span>
               <Signout name={name} />
           </div>
         </nav>
         <div class="home-content-ph" style={{ display: "block" }}>
-
           <div className="graph-box" >
-            <div class="history-charts-1" style={{}}>
-              <div class="title">Temperature Analysis</div>
+            <div className="history-charts-1" style={{}}>
+              <div className="title">Temperature Analysis</div>
               <TempChart baseURL={baseURL} />
             </div>
           </div>

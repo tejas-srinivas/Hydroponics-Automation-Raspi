@@ -55,18 +55,18 @@ const Dashboard = ({ name, title, baseURL }) => {
     return (
         <>
             <Sidebar name={name} />
-            <section class="home-section">
+            <section className="home-section">
                 <nav>
-                    <div class="sidebar-button">
-                        <span class="dashboard">Dashboard</span>
+                    <div className="sidebar-button">
+                        <span className="dashboard">Dashboard</span>
                         <code style={{ position: "absolute", margin: "auto", marginLeft: "46%", textAlign: "center", fontWeight: "500", fontSize: "18px" }}>Last Fetch: {moment(data.timestamp).format('lll')}</code>
                         <Signout name={name} />
                     </div>
                 </nav>
-                <div class="home-content">
-                    <div class="overview-boxes">
-                        <div class="box">
-                            <div class="right-side">
+                <div className="home-content">
+                    <div className="overview-boxes">
+                        <div className="box">
+                            <div className="right-side">
                                 <Icon icon="mingcute:light-line" color="#25523d" />&nbsp;
                                 <span>Light Level</span>
                                 <br></br>
@@ -75,9 +75,9 @@ const Dashboard = ({ name, title, baseURL }) => {
                             <img src={BoxImage} alt="box-image1" className="box-image" />
                             {/* <i class="bx bxs-thermometer readings"></i> */}
                         </div>
-                        <div class="box">
-                            <div class="right-side">
-                                <i class="bx bxs-thermometer readings"></i>
+                        <div className="box">
+                            <div className="right-side">
+                                <i className="bx bxs-thermometer readings"></i>
                                 <span>Temperature</span>
                                 <br></br>
                                 <span className="data" style={{ "color": data.temperature > 28 ? "red" : "green" }}>{data.temperature} ºC {data.temperature > 28 ? "▲" : "▼"}</span>
@@ -85,9 +85,9 @@ const Dashboard = ({ name, title, baseURL }) => {
                             <img src={BoxImage5} alt="box-image1" className="box-image" />
                             {/* <i class="bx bxs-thermometer readings"></i> */}
                         </div>
-                        <div class="box">
-                            <div class="right-side">
-                                <i class="bx bxs-droplet-half readings two"></i>&nbsp;
+                        <div className="box">
+                            <div className="right-side">
+                                <i className="bx bxs-droplet-half readings two"></i>&nbsp;
                                 <span>Humidity</span>
                                 <br></br>
                                 <span className="data" id="humidity" style={{ "color": data.humidity > 60 ? "red" : "green" }}>{data.humidity} % {data.humidity > 60 ? "▲" : "▼"}</span>
@@ -95,8 +95,8 @@ const Dashboard = ({ name, title, baseURL }) => {
                             {/* <i class="bx bxs-droplet-half readings two"></i> */}
                             <img src={BoxImage2} alt="box-image2" className="box-image" />
                         </div>
-                        <div class="box">
-                            <div class="right-side">
+                        <div className="box">
+                            <div className="right-side">
                                 <Icon icon="zondicons:thermometer" rotate={2} color="#25523d" />&nbsp;
                                 <span>pH</span>
                                 <br></br>
@@ -105,8 +105,8 @@ const Dashboard = ({ name, title, baseURL }) => {
                             {/* <i class="bx bxs-tachometer readings three"></i> */}
                             <img src={BoxImage3} alt="box-image3" className="box-image" />
                         </div>
-                        <div class="box">
-                            <div class="right-side">
+                        <div className="box">
+                            <div className="right-side">
                                 <Icon icon="icomoon-free:lab" color="#25523d" />&nbsp;
                                 <span>EC</span>
                                 <br></br>
@@ -116,16 +116,16 @@ const Dashboard = ({ name, title, baseURL }) => {
                             <img src={BoxImage6} alt="box-image4" className="box-image" />
                         </div>
                     </div>
-                    <div class="graph-box">
-                        <div class="history-charts">
-                            <div class="title">Ph, EC Charts</div>
+                    <div className="graph-box">
+                        <div className="history-charts">
+                            <div className="title">Ph, EC Charts</div>
                             <DashChart baseURL={baseURL} />
                         </div>
-                        <div class="gaugeCharts">
-                            <div class="title">Gauge Charts</div>
-                            <div class="gauge-list">
-                                <div class="gauge-box"><div id="humidity-gauge">Temperature: <GaugeChart temp={data.temperature} /></div></div>
-                                <div class="gauge-box"><div id="humidity-gauge">Humidity: <HumidtyGauge humidity={data.humidity} /></div></div>
+                        <div className="gaugeCharts">
+                            <div className="title">Gauge Charts</div>
+                            <div className="gauge-list">
+                                <div className="gauge-box"><div id="humidity-gauge">Temperature: <GaugeChart temp={data.temperature} /></div></div>
+                                <div className="gauge-box"><div id="humidity-gauge">Humidity: <HumidtyGauge humidity={data.humidity} /></div></div>
                             </div>
                         </div>
                     </div>

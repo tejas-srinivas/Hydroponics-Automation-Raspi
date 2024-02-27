@@ -1,11 +1,86 @@
 import React from 'react'
 import Sidebar from "../components/Sidebar"
+import Signout from "../components/Signout";
+import College from "../Images/sjbit-logo.webp"
+import Principal from "../Images/principal.webp"
+import Ise from "../Images/ise.png"
+import Dean from "../Images/dean.png"
+import RD from "../Images/R&D.png"
+import PI from "../Images/Prinicipal_Investigator.png"
+import ugStudents from '../components/UgStudents';
+import Student from '../components/Student';
 
-const About = ({name}) => {
+const About = ({ name }) => {
+
+  document.title = "About"
   return (
     <>
       <Sidebar name={name} />
-      <h1>About Developers</h1>
+      <section className='home-section' style={{ textTransform: "initial" }}>
+        <nav>
+          <div className="sidebar-button">
+            <span className="dashboard">About</span>
+            <Signout name={name} />
+          </div>
+        </nav>
+        <div className="home-content" style={{ paddingLeft: "15%", textAlign: "justify", width: "70%", display: "flex", alignItems: "center", justifyContent:"space-evenly", gap:"10%" }}>
+          <img src={College} alt="" width={150} height={150} />
+          <div className='wrapper'>
+            {/* <p style={{textAlign:"center"}}>|| JAI SRI GURUDEV ||</p> */}
+            <h2 style={{ textAlign: "center" }}>SJB Institute of Technology</h2>
+            <span>SJB Institute of Technology (SJBIT) was established in the year 2001 by Sri Adichunchanagiri Shikshana Trust® (SAST®) under the guidance of His Holiness Jagadguru Padma Bhushana Dr. Sri Sri Sri Balagangadharanatha Maha Swamiji. To know more  <a target="_blank" href="https://sjbit.edu.in/about-sjb-institute-of-technology/" rel="noreferrer">Click here</a></span>
+          </div>
+        </div>
+        <div className="home-content" style={{ paddingLeft: "15%", textAlign: "center", width: "70%", display: "flex", alignItems: "center",gap:"25%" }}>
+          <img src={Principal} alt="" width={150} height={150} style={{ borderRadius: "50%" }} />
+          <div className='wrapper'>
+            <h2 style={{textAlign:"center"}}>Principal, SJBIT</h2>
+            <span>Dr. K. V. Mahendra Prashanth, to know more </span>
+            <a target="_blank" href="https://sjbit.edu.in/principal/" rel="noreferrer">Click here</a>
+          </div>
+        </div>
+        <div className="home-content" style={{ paddingLeft: "15%", textAlign: "center", width: "70%", display: "flex", alignItems: "center", gap: "20%" }}>
+          <img src={Dean} alt="" width={150} height={150} style={{ borderRadius: "50%" }} />
+          <div className='wrapper'>
+            <h2>Advisor- Dean R and D Centre, SJBIT</h2>
+            <span>Prof. C. V. Yelamaggad, to know more </span>
+            <a target="_blank" href="https://drive.google.com/file/d/17DY0_O4gRSs3UcKi0RKg8IHZDCEG2yAj/view?usp=drive_link" rel="noreferrer">Click here</a>
+          </div>
+        </div>
+        <div className="home-content" style={{ paddingLeft: "15%", textAlign: "justify", width: "70%", display: "flex", alignItems: "center", gap: "10%" }}>
+          <img src={Ise} alt="" width={150} height={150} style={{ borderRadius: "50%" }} />
+          <div className='wrapper'>
+            <h2>Dept. of Information Science & Engineering, SJBIT</h2>
+            <span>The Information Science and Engineering program is an interdisciplinary field combining computer science, IT and related disciplines. It provides students with a comprehensive understanding of data collection, management, and analysis in various forms. The curriculum covers data structures, algorithms, databases, computer networks, software engineering, information security, and human-computer interaction. To know more <a target="_blank" href="https://sjbit.edu.in/bachelor-of-engineering-in-information-science-and-engineering/" rel="noreferrer">Click here</a></span>
+          </div>
+        </div>
+        <div className="home-content" style={{ paddingLeft: "15%", textAlign: "center", width: "70%", display: "flex", alignItems: "center", gap: "25%" }}>
+          <img src={RD} alt="" width={150} height={150} style={{ borderRadius: "50%" }} />
+          <div className='wrapper'>
+            <h2 style={{ textAlign: "center" }}>Head of R&D, Dept. of ISE, SJBIT</h2>
+            <span>Dr. Abhilash C.N. to know more</span>
+            <a target="_blank" href="https://drive.google.com/file/d/1-bgvm_WSqOmk_jcg6QtOooaTk8WFFpxo/view?usp=drive_link" rel="noreferrer">Click here</a>
+          </div>
+        </div>
+        <div className="home-content" style={{ paddingLeft: "15%", textAlign: "center", width: "70%", display: "flex", alignItems: "center", gap: "15%" }}>
+          <img src={PI} alt="" width={180} height={150} style={{ borderRadius: "50%" }} />
+          <div className='wrapper'>
+            <h2 style={{ textAlign: "center" }}>Principal Investigator, Dept. of ISE, SJBIT</h2>
+            <span>Dr. Pavitra Bai S, to know more</span>
+            <a target="_blank" href="https://drive.google.com/file/d/1sBVUuXOSc-aNvSPDyHzgdxUyxC-bK_u2/view?usp=drive_link" rel="noreferrer">Click here</a>
+          </div>
+        </div>
+        <div className="home-content" style={{ paddingLeft: "18%", textAlign: "center", width: "80%", display: "flex", alignItems: "center", gap: "25%" }}>
+          <div className='wrapper'>
+            <h2 style={{ textAlign: "center", paddingLeft: "15%" }}>UG Students, Dept. of ISE, SJBIT [Developers]</h2>
+            <div className='student--wrapper'>
+              {ugStudents.map((student) => (
+                <Student key={student.id} student={student} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
