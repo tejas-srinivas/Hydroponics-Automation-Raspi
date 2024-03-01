@@ -3,6 +3,8 @@ import Sidebar from "../components/Sidebar"
 import Signout from "../components/Signout";
 import College from "../Images/sjbit-logo.webp"
 import Principal from "../Images/principal.webp"
+import Hod from "../Images/shahi.jpeg"
+import Bhakt from "../Images/bhatkat.jpeg"
 import Ise from "../Images/ise.png"
 import Dean from "../Images/dean.png"
 import RD from "../Images/R&D.png"
@@ -48,7 +50,7 @@ const About = ({ name }) => {
           </div>
         </div>
         <div className="home-content" style={{ paddingLeft: "15%", textAlign: "center", width: "70%", display: "flex", alignItems: "center", gap: "20%" }}>
-          <img src={Dean} alt="" width={150} height={150} style={{ borderRadius: "50%" }} />
+          <img src={Bhakt} alt="" width={150} height={150} style={{ borderRadius: "50%" }} />
           <div className='wrapper'>
             <h2>Chief R&D Coordinator, SJBIT</h2>
             <span>Mr. Bhaktavatsala S, to know more </span>
@@ -63,7 +65,7 @@ const About = ({ name }) => {
           </div>
         </div>
         <div className="home-content" style={{ paddingLeft: "15%", textAlign: "center", width: "70%", display: "flex", alignItems: "center", gap: "25%" }}>
-          <img src={RD} alt="" width={150} height={150} style={{ borderRadius: "50%" }} />
+          <img src={Hod} alt="" width={150} height={150} style={{ borderRadius: "50%" }} />
           <div className='wrapper'>
             <h2 style={{ textAlign: "center" }}>Head of Department ISE, SJBIT</h2>
             <span>Dr. Shashidhara H R, to know more</span>
