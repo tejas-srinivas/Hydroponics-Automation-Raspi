@@ -47,7 +47,7 @@ const Dashboard = ({ name, title, baseURL }) => {
 
     useEffect(() => {
         sensor_data()
-        const intervalId = setInterval(sensor_data, 60001 * 15);
+        const intervalId = setInterval(sensor_data, 100000);
         return () => clearInterval(intervalId);
     }, [])
 
