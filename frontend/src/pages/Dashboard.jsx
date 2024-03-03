@@ -12,6 +12,7 @@ import axios from 'axios';
 import DashChart from "../components/DashChart";
 import Signout from "../components/Signout";
 import moment from 'moment/moment';
+import { Link } from "react-router-dom";
 
 const Dashboard = ({ name, title, baseURL }) => {
     // window.location.reload()
@@ -75,7 +76,7 @@ const Dashboard = ({ name, title, baseURL }) => {
                             <img src={BoxImage} alt="box-image1" className="box-image" />
                             {/* <i class="bx bxs-thermometer readings"></i> */}
                         </div>
-                        <div className="box">
+                        <Link to='/tempAnalysis' style={{textDecoration:"none"}} className="box">
                             <div className="right-side">
                                 <i className="bx bxs-thermometer readings"></i>
                                 <span>Temperature</span>
@@ -84,7 +85,7 @@ const Dashboard = ({ name, title, baseURL }) => {
                             </div>
                             <img src={BoxImage5} alt="box-image1" className="box-image" />
                             {/* <i class="bx bxs-thermometer readings"></i> */}
-                        </div>
+                        </Link>
                         <div className="box">
                             <div className="right-side">
                                 <i className="bx bxs-droplet-half readings two"></i>&nbsp;
@@ -95,7 +96,7 @@ const Dashboard = ({ name, title, baseURL }) => {
                             {/* <i class="bx bxs-droplet-half readings two"></i> */}
                             <img src={BoxImage2} alt="box-image2" className="box-image" />
                         </div>
-                        <div className="box">
+                        <Link to='phAnalysis' style={{textDecoration:'none'}} className="box">
                             <div className="right-side">
                                 <Icon icon="zondicons:thermometer" rotate={2} color="#25523d" />&nbsp;
                                 <span>pH</span>
@@ -104,8 +105,8 @@ const Dashboard = ({ name, title, baseURL }) => {
                             </div>
                             {/* <i class="bx bxs-tachometer readings three"></i> */}
                             <img src={BoxImage3} alt="box-image3" className="box-image" />
-                        </div>
-                        <div className="box">
+                        </Link>
+                        <Link to='/ecAnalysis' style={{textDecoration:'none'}} className="box">
                             <div className="right-side">
                                 <Icon icon="icomoon-free:lab" color="#25523d" />&nbsp;
                                 <span>EC</span>
@@ -114,15 +115,15 @@ const Dashboard = ({ name, title, baseURL }) => {
                             </div>
                             {/* <i class="bx bxs-building readings four"></i> */}
                             <img src={BoxImage6} alt="box-image4" className="box-image" />
-                        </div>
+                        </Link>
                     </div>
                     <div className="graph-box">
                         <div className="history-charts">
-                            <div className="title">Ph, EC Charts</div>
+                            <div className="title">Ph, EC Monitoring:</div>
                             <DashChart baseURL={baseURL} />
                         </div>
                         <div className="gaugeCharts">
-                            <div className="title">Gauge Charts</div>
+                            <div className="title">Temperature Monitoring:</div>
                             <div className="gauge-list">
                                 <div className="gauge-box"><div id="humidity-gauge">Temperature: <GaugeChart temp={data.temperature} /></div></div>
                                 <div className="gauge-box"><div id="humidity-gauge">Humidity: <HumidtyGauge humidity={data.humidity} /></div></div>

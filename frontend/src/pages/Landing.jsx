@@ -16,7 +16,11 @@ const Landing = () => {
       .catch(error => console.log(`Error: ${error.data}`))
   }, [])
   const [color, setColor] = useState(false)
-  const aboutVGST = "The Vision Group on Science and Technology (VGST) was constituted by the Government in 2008 under the Chairmanship of Distinguished Scientist Bharat Ratna Prof. C.N.R. Rao, F.R.S., National Research Professor, Honorary President, JNCSAR. VGST serves as an apex body monitoring VGST programs specifically dovetailed to Karnataka."
+  const aboutVGST = "Catalysed and supported by Vision Group on Science and Technology Karnataka Science and Technology Promotion Society (KSTePS),Department of Science and Technology, Government of Karnataka."
+  const projTitle = "Project Title: “Smart Nutrition Management System for Hydroponic Farming“"
+  const pi = "Principal Investigator: Dr. Pavitra Bai S, Associate Professor"
+  const dept = "Department:  Information Science and Engineering (ISE) "
+  const college = "College: SJB Institute of Technology (SJBIT), Bengaluru-560060."
   const projectDetails = "VGST, RGS/F scheme,  GRD - 1081"
   const hydroponicDetails = "Hydroponics is the process of growing plants in the absence of soil with the help of added nutrients. Apart from the nutrient solution, pH values, lighting conditions, regulating the artificial atmospheric conditions, etc. are contributing factors in ensuring the growth of the plant, which is generally 25-30% faster with higher yield. Another factor in farming is the natural environment, which is an external factor such as soil, water, light, room temperature, water temperature, humidity in the air, relative humidity, alkalinity of soil and water, and essential nutrients required for plant growth."
   const whyUseHydroponics = "water conservation, faster growth, fewer pesticides, space saving, higher yields, and other benefits. Hydroponics uses 98% less water than traditional soil-based agriculture. This is because the water is recirculated and reused, rather than being lost to evaporation or runoff. Hydroponic plants also grow faster than soil-based plants, often by 25% or more as they have direct access to the nutrients they need. Finally, hydroponics can produce higher yields than soil-based agriculture. This is because the hydroponic environment is more controlled, and it is easier to provide plants with the optimal conditions for growth."
@@ -64,7 +68,11 @@ const Landing = () => {
           <div className="vertical-line"></div>
           <div className="project-details">
             <h3>Project ID : {projectDetails}</h3>
-            <p style={{ color: "gray" }}>{aboutVGST}</p>
+            <p style={{ color: "gray", lineHeight:'1.25' }}>{aboutVGST}</p>
+            <p style={{ color: "gray" }}>{projTitle}</p>
+            <p style={{ color: "gray" }}>{pi}</p>
+            <p style={{ color: "gray" }}>{dept}</p>
+            <p style={{ color: "gray" }}>{college}</p>
           </div>
         </div>
         <br />
