@@ -10,7 +10,7 @@ import Settings from "../Images/summary.svg";
 import Logs from "../Images/logs1.svg";
 import Support from "../Images/support.svg";
 import About from '../Images/about.svg'
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = ({name}) => {
     const location = useLocation();
@@ -72,7 +72,7 @@ const Sidebar = ({name}) => {
                 <ul>
                     <li className={location.pathname === "/dashboard" ? "active" : ""}>
                         <img src={Dashboard} width={30} height={30} style={{color:"f2f2f2"}} alt="dashboard" />
-                        <a href="/dashboard">dashboard</a>
+                        <Link to="/dashboard">dashboard</Link>
                     </li>
                     <li
                         className={
@@ -82,7 +82,7 @@ const Sidebar = ({name}) => {
                         }
                     >
                         <img src={Performance} width={30} height={30} style={{color:"f2f2f2"}} alt="ph analysis" />
-                        <a href="/phAnalysis">pH Analysis</a>
+                        <Link to="/phAnalysis">pH Analysis</Link>
                     </li>
                     <li
                         className={
@@ -90,7 +90,7 @@ const Sidebar = ({name}) => {
                         }
                     >
                         <img src={Performance} width={30} height={30} style={{color:"f2f2f2"}} alt="ec analysis" />
-                        <a href="/ecAnalysis">EC Analysis</a>
+                        <Link to="/ecAnalysis">EC Analysis</Link>
                     </li>
                     <li
                         className={
@@ -98,7 +98,7 @@ const Sidebar = ({name}) => {
                         }
                     >
                         <img src={Temperature} width={30} height={30} style={{color:"f2f2f2"}} alt="temperature" />
-                        <a href="/tempAnalysis">Temperature</a>
+                        <Link to="/tempAnalysis">Temperature</Link>
                     </li>
                     <li
                         className={
@@ -106,7 +106,7 @@ const Sidebar = ({name}) => {
                         }
                     >
                         <img src={Settings} width={30} height={30} style={{color:"f2f2f2"}} alt="summary" />
-                        <a href="/summary">summary</a>
+                        <Link to="/summary">summary</Link>
                     </li>
                     <li
                         className={
@@ -114,7 +114,7 @@ const Sidebar = ({name}) => {
                         }
                     >
                         <img src={Logs} alt="Logs" width={30} height={30} style={{color:"f2f2f2"}}/>
-                        <a href="/logs">Logs</a>
+                        <Link to="/logs">Logs</Link>
                     </li>
                     <li
                         className={
@@ -122,7 +122,7 @@ const Sidebar = ({name}) => {
                         }
                     >
                         <img src={Support} alt="Support" />
-                        <a href="/myaccount">my account</a>
+                        <Link to="/myaccount">my account</Link>
                     </li>
                     <li
                         className={
@@ -130,7 +130,7 @@ const Sidebar = ({name}) => {
                         }
                     >
                         <img src={About} width={30} height={30} style={{color:"f2f2f2"}} alt="Support" />
-                        <a href="/about">about</a>
+                        <Link to="/about">about</Link>
                     </li>
                 </ul>
 

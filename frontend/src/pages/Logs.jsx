@@ -66,10 +66,10 @@ const Logs = ({ name, baseURL }) => {
                     {logsData.data === null ? <h2>Loading</h2> :
                         <table id="sensors">
                             <caption style={{ fontSize: "150%", backgroundColor: "#25523b", color: "#f2f2f2", padding: "15px 0px 15px 15px", textAlign: "left" }}>Logs Data</caption>
-                            <caption style={{ fontSize: "150%", backgroundColor: "#25523b", color: "#f2f2f2", textAlign: "center" , position: "absolute", left: "55%", top: "1.5%" }}>Filter: </caption>
-                            <caption style={{ position: "absolute", left: "62%", top: "1.5%" }}><button className= 'filterData' onClick={() => filterData(logsData, day)} style={{}}>Today</button></caption>
-                            <caption style={{ position: "absolute", left: "72%", top: "1.5%" }}><button className= 'filterData' onClick={() => filterData(logsData, month)} style={{}}>This Month</button></caption>
-                            <caption style={{ position: "absolute", left: "85%", top: "1.5%" }}><button className= 'filterData' onClick={() => filterData(logsData, all)} style={{}}>All Data</button></caption>
+                            <caption style={{ fontSize: "150%", backgroundColor: "#25523b", color: "#f2f2f2", textAlign: "center" , position: "absolute", left: "55%", top: "0.5%" }}>Filter: </caption>
+                            <caption style={{ position: "fixed", left: "62%", top: "0.5%" }}><button className= 'filterData' onClick={() => filterData(logsData, day)} style={{}}>Today</button></caption>
+                            <caption style={{ position: "fixed", left: "72%", top: "0.5%" }}><button className= 'filterData' onClick={() => filterData(logsData, month)} style={{}}>This Month</button></caption>
+                            <caption style={{ position: "fixed", left: "85%", top: "0.5%" }}><button className= 'filterData' onClick={() => filterData(logsData, all)} style={{}}>All Data</button></caption>
                             <thead>
                                 <tr>
                                     <th>Sl.no</th>

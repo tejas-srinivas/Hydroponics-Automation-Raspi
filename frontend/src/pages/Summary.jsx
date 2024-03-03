@@ -73,11 +73,11 @@ const Summary = ({ name, baseURL }) => {
         <div className='home-content'>
           <table id="sensors">
             <caption style={{ fontSize: "150%", backgroundColor: "#25523b", color: "#f2f2f2", padding: "15px 0px 15px 15px", textAlign: "left" }}>Real Time Sensor Data</caption>
-            <caption style={{ fontSize: "150%", backgroundColor: "#25523b", color: "#f2f2f2", textAlign: "center" , position: "absolute", left: "55%", top: "1.5%" }}>Filter: </caption>
+            <caption style={{ fontSize: "150%", backgroundColor: "#25523b", color: "#f2f2f2", textAlign: "center" , position: "absolute", left: "55%", top: "0.5%" }}>Filter: </caption>
             <caption style={{ position: "absolute", left: "32%", top: "1%" }}><button className='export' onClick={handleClick} style={{ border: "none", fontFamily: "Poppins", borderRadius: "10px", backgroundColor: "#2db83d", cursor: "pointer", color: "#f2f2f2", padding: "10px 25px 10px 25px" }}>Export xlsx</button></caption>
-            <caption style={{ position: "absolute", left: "62%", top: "1.5%" }}><button className='filterData' onClick={() => filterData(summary, day)} style={{}}>Today</button></caption>
-            <caption style={{ position: "absolute", left: "72%", top: "1.5%" }}><button className='filterData' onClick={() => filterData(summary, month)} style={{}}>This Month</button></caption>
-            <caption style={{ position: "absolute", left: "85%", top: "1.5%" }}><button className='filterData' onClick={() => filterData(summary, all)} style={{}}>All Data</button></caption>
+            <caption style={{ position: "absolute", left: "62%", top: "0.5%" }}><button className='filterData' onClick={() => filterData(summary, day)} style={{}}>Today</button></caption>
+            <caption style={{ position: "absolute", left: "72%", top: "0.5%" }}><button className='filterData' onClick={() => filterData(summary, month)} style={{}}>This Month</button></caption>
+            <caption style={{ position: "absolute", left: "85%", top: "0.5%" }}><button className='filterData' onClick={() => filterData(summary, all)} style={{}}>All Data</button></caption>
             <thead>
               <tr>
                 <th>Sl.no</th>
