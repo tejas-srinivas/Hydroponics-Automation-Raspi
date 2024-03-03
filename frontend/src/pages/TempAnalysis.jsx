@@ -41,7 +41,7 @@ const TempAnalysis = ({name, baseURL}) => {
               <Signout name={name} />
           </div>
         </nav>
-        <div class="home-content-ph" style={{ display: "block" }}>
+        <div className="home-content-ph" style={{ display: "block" }}>
           <div className="graph-box" >
             <div className="history-charts-1" style={{}}>
               <div className="title">Temperature Analysis</div>

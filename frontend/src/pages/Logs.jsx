@@ -57,8 +57,8 @@ const Logs = ({ name, baseURL }) => {
             <Sidebar name={name} />
             <section className='home-section'>
                 <nav>
-                    <div class="sidebar-button">
-                        <span class="dashboard">Logs</span>
+                    <div className="sidebar-button">
+                        <span className="dashboard">Logs</span>
                         <Signout name={name} />
                     </div>
                 </nav>

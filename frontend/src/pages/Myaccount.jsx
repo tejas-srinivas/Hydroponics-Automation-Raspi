@@ -45,10 +45,10 @@ const Myaccount = ({ name, baseURL }) => {
   return (
     <div>
       <Sidebar name={name} />
-      <section class="home-section">
+      <section className="home-section">
         <nav>
-          <div class="sidebar-button">
-            <span class="dashboard">My Account</span>
+          <div className="sidebar-button">
+            <span className="dashboard">My Account</span>
             <Signout name={name} />
           </div>
         </nav>
