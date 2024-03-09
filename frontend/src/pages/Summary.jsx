@@ -85,6 +85,7 @@ const Summary = ({ name, baseURL }) => {
               <tr>
                 <th>Sl.no</th>
                 <th>Temperature</th>
+                <th>Light</th>
                 <th>Humidity</th>
                 <th>pH</th>
                 <th>EC</th>
@@ -97,6 +98,7 @@ const Summary = ({ name, baseURL }) => {
                   return <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{value.temperature} ºC</td>
+                    <td>{value.lux} lx</td>
                     <td>{value.humidity} %</td>
                     <td>{value.ph} pH</td>
                     <td>{value.ec} EC</td>
@@ -106,6 +108,7 @@ const Summary = ({ name, baseURL }) => {
                   return <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{value.temperature} ºC</td>
+                    <td>{value.lux} lx</td>
                     <td>{value.humidity} %</td>
                     <td>{value.ph} pH</td>
                     <td>{value.ec} EC</td>
