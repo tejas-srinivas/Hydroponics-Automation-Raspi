@@ -28,12 +28,33 @@ const Summary = ({ name, baseURL }) => {
     return () => clearInterval(intervalId);
   }, [])
 
+  // const getday = () => {
+  //   let currentDate = new Date();
+  //   let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  //   let monthIndex = currentDate.getMonth();
+  //   let month = months[monthIndex];
+  //   let day = currentDate.getDate();
+    
+  //   // Format the date as "MMM, D"
+  //   let formattedDate = month + ' ' + + (day < 10 ? '0' : '') + day + ',';
+  //   // console.log(formattedDate)
+  //   return formattedDate.toString;
+  // }
+
   const getday = () => {
-    const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    const d = new Date();
-    const day = weekday[d.getDay()];
-    return day
-  }
+    let currentDate = new Date();
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    let dayIndex = currentDate.getDay();
+    let monthIndex = currentDate.getMonth();
+    let day = currentDate.getDate();
+    let year = currentDate.getFullYear();
+    
+    // Format the date as "Day MMM DD YYYY"
+    let formattedDate = days[dayIndex] + ' ' + months[monthIndex] + ' ' + (day < 10 ? '0' : '') + day + ' ' + year;
+    
+    return formattedDate;
+}
 
   const getmonth = () => {
     const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
