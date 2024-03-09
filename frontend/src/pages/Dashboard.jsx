@@ -96,7 +96,7 @@ const Dashboard = ({ name, title, baseURL }) => {
                             {/* <i class="bx bxs-droplet-half readings two"></i> */}
                             <img src={BoxImage2} alt="box-image2" className="box-image" />
                         </div>
-                        <Link to='phAnalysis' style={{textDecoration:'none'}} className="box">
+                        <Link to='/phAnalysis' style={{textDecoration:'none'}} className="box">
                             <div className="right-side">
                                 <Icon icon="zondicons:thermometer" rotate={2} color="#25523d" />&nbsp;
                                 <span>pH</span>
