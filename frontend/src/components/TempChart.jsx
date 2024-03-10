@@ -42,7 +42,7 @@ const TempChart = ({ baseURL }) => {
 
     useEffect(() => {
         fetchTempData()
-        const intervalId = setInterval(fetchTempData, 60001*15);
+        const intervalId = setInterval(fetchTempData, 100000);
 
         return () => clearInterval(intervalId);
     }, [])
@@ -56,10 +56,9 @@ const TempChart = ({ baseURL }) => {
             datasets: [
                 {
                     fill: true,
-                    label: "pH of Nutrient Solution",
+                    label: "Environment Temperature",
                     data: tempChartData.map(value => value.x),
                     borderColor: 'hsl(120, 90%, 29%)',
-                    // backgroundColor: 'hsl(120, 90%, 29%)',
                     pointBorderColor:'hsl(250, 60%, 61%)',
                     tension:0.4
                 }
