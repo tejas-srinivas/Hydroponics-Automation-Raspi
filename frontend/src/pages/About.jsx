@@ -44,7 +44,7 @@ const About = ({ name }) => {
         <div className="home-content" style={{ paddingLeft: "15%", textAlign: "center", width: "70%", display: "flex", alignItems: "center", gap: "20%" }}>
           <img src={Dean} alt="" width={150} height={150} style={{ borderRadius: "50%" }} />
           <div className='wrapper'>
-            <h2>Advisor- Dean R and D Centre, SJBIT</h2>
+            <h2>Advisor, SJBIT</h2>
             <span>Prof. C. V. Yelamaggad, to know more </span>
             <a target="_blank" href="https://drive.google.com/file/d/17DY0_O4gRSs3UcKi0RKg8IHZDCEG2yAj/view?usp=drive_link" rel="noreferrer">Click here</a>
           </div>
