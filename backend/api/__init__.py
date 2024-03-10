@@ -144,7 +144,7 @@ def create_app():
     #gets only 15 data in descending order of time stamp
     @app.route('/sensor_data')
     def get_all_sensor_data():
-        sensorData = mongo.db.sensor_data.find().sort({"_id":-1}).limit(15)
+        sensorData = mongo.db.sensor_data.find().limit(15)
         resp = dumps(sensorData)
         return resp
 
