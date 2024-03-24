@@ -5,3 +5,4 @@ Flask-PyMongo
 pymongo[srv]
 python-dotenv
 bcrypt
+opencv-python

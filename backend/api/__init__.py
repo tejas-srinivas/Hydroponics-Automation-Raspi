@@ -1,10 +1,12 @@
-from flask import Flask, session
+from flask import Flask, session, Response, request
 from flask_pymongo import PyMongo
 from bson.json_util import dumps
 from flask import request
 from flask_cors import CORS
 import bcrypt
 import os
+import numpy as np
+import cv2
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -192,6 +194,14 @@ def create_app():
         resp = dumps(logsData)
         return resp
 
+    @app.route('/receive_video', methods=['POST'])
+    def receive_video():
+        nparr = np.frombuffer(request.data, np.uint8)
+        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+    
+    # Process or display the received frame here
+    
+        return Response(status=200)
     # if __name__ == '__main__':
     #     app.run(host='0.0.0.0', port = 5001, debug=True)
 
