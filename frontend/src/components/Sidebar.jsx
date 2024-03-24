@@ -132,6 +132,14 @@ const Sidebar = ({name}) => {
                         <img src={About} width={30} height={30} style={{color:"f2f2f2"}} alt="Support" />
                         <Link to="/about">about</Link>
                     </li>
+                    <li
+                        className={
+                            location.pathname === "/liveStream" ? "active" : ""
+                        }
+                    >
+                        <img src={About} width={30} height={30} style={{color:"f2f2f2"}} alt="Support" />
+                        <Link to="/liveStream">live stream</Link>
+                    </li>
                 </ul>
 
                 <img src={SidebarBack} alt="icon" className={closeMenu === false ? "sidebar-background" : "close-background"}/>

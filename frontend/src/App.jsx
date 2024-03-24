@@ -15,6 +15,7 @@ import Signup from "./authentication/SignUp";
 import useAuth from "./authentication/auth";
 import Logs from "./pages/Logs";
 import About from "./pages/About";
+import LiveStream from "./pages/LiveStream";
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
                     {user && (<Route path="/myaccount" element={<Myaccount name={name} baseURL={baseURL} />} />)}
                     {user && (<Route path="/logs" element={<Logs name={name} baseURL={baseURL} />} />)}
                     {user && (<Route path="/about" element={<About name={name} baseURL={baseURL} />} />)}
+                    {user && (<Route path="/liveStream" element={<LiveStream name={name} baseURL={baseURL} />} />)}
                     <Route path="/" element={<Landing />}></Route>
                     <Route path="/login" exact element={<Login baseURL={baseURL} />} />
                     <Route path="/signup" exact element={<Signup baseURL={baseURL} />} />
