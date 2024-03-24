@@ -9,9 +9,9 @@ function LiveStream({name}) {
   useEffect(() => {
     const fetchVideoStream = async () => {
       try {
-        const response = await fetch('https://smarthydro-auth-api.onrender.com/receive_video');
+        // const response = await fetch('https://smarthydro-auth-api.onrender.com/receive_video');
         // Use Axios instead:
-        // const response = await axios.post('https://smarthydro-auth-api.onrender.com/receive_video');
+        const response = await axios.post('https://smarthydro-auth-api.onrender.com/receive_video');
         
         const reader = response.body.getReader();
         const { value, done } = await reader.read();

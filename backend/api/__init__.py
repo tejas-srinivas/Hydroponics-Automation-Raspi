@@ -194,14 +194,17 @@ def create_app():
         resp = dumps(logsData)
         return resp
 
-    @app.route('/receive_video', methods=['POST'])
+    @app.route('/receive_video', methods=['POST'])  # Specify allowed methods
     def receive_video():
-        nparr = np.frombuffer(request.data, np.uint8)
-        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-    
-    # Process or display the received frame here
-    
-        return Response(status=200)
+        if request.method == 'POST':
+            nparr = np.frombuffer(request.data, np.uint8)
+            img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+            
+            # Process or display the received frame here
+            
+            return Response(status=200)
+        else:
+            return Response(status=405)  # Method Not Allowed
     # if __name__ == '__main__':
     #     app.run(host='0.0.0.0', port = 5001, debug=True)
 
