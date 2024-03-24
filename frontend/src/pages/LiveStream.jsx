@@ -9,19 +9,14 @@ function LiveStream({name}) {
   useEffect(() => {
     const fetchVideoStream = async () => {
       try {
-        // const response = await fetch('https://smarthydro-auth-api.onrender.com/receive_video');
+        const response = await fetch('https://smarthydro-auth-api.onrender.com/get_processed_image');
         // Use Axios instead:
-        const response = await axios.post('https://smarthydro-auth-api.onrender.com/receive_video');
-        
-        const reader = response.body.getReader();
-        const { value, done } = await reader.read();
-
-        if (!done) {
-          // Assuming the server sends JPEG frames
-          const blob = new Blob([value], { type: 'image/jpeg' });
-          const imageUrl = URL.createObjectURL(blob);
-          setVideoStream(imageUrl);
+        // const response = await axios.get('https://smarthydro-auth-api.onrender.com/get_processed_image');
+        if(!response.ok){
+          throw new Error('Failed to fetch processed image')
         }
+        const blob = await response.blob()
+        setVideoStream(URL.createOjectURL(blob))
       } catch (error) {
         console.error('Error fetching video stream:', error);
       }
@@ -42,7 +37,7 @@ function LiveStream({name}) {
             <Signout name={name}/>
           </div>
         </nav>
-            {videoStream && <img src={videoStream} alt="Live Video Stream" width='600' height='700'/>}
+            {videoStream && <img src={videoStream} alt="Live Video Stream" width='720' height='1280'/>}
         </section>
     </>
   );

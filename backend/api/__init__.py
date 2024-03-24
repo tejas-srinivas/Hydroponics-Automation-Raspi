@@ -15,7 +15,7 @@ DATABASE_USER = os.getenv("DATABASE_USER")
 DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD")
 SECRET_KEY = os.getenv("SECRET_KEY")
 CLUSTER_NAME =  os.getenv('CLUSTER_NAME')
-processed_image_path = "processed_image.jpg"
+processed_image_path = os.getenv('processed_image_path')
 
 def create_app():
     app = Flask(__name__)
