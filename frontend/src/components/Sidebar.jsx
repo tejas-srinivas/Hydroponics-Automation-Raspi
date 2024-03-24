@@ -10,6 +10,7 @@ import Settings from "../Images/summary.svg";
 import Logs from "../Images/logs1.svg";
 import Support from "../Images/support.svg";
 import About from '../Images/about.svg'
+import Live from '../Images/live.svg'
 import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = ({name}) => {
@@ -71,8 +72,9 @@ const Sidebar = ({name}) => {
             >
                 <ul>
                     <li className={location.pathname === "/dashboard" ? "active" : ""}>
+                    <Link to="/dashboard">
                         <img src={Dashboard} width={30} height={30} style={{color:"f2f2f2"}} alt="dashboard" />
-                        <Link to="/dashboard">dashboard</Link>
+                        dashboard</Link>
                     </li>
                     <li
                         className={
@@ -81,64 +83,72 @@ const Sidebar = ({name}) => {
                                 : ""
                         }
                     >
+                        <Link to="/phAnalysis">
                         <img src={Performance} width={30} height={30} style={{color:"f2f2f2"}} alt="ph analysis" />
-                        <Link to="/phAnalysis">pH Analysis</Link>
+                        pH Analysis</Link>
                     </li>
                     <li
                         className={
                             location.pathname === "/ecAnalysis" ? "active" : ""
                         }
                     >
+                        <Link to="/ecAnalysis">
                         <img src={Performance} width={30} height={30} style={{color:"f2f2f2"}} alt="ec analysis" />
-                        <Link to="/ecAnalysis">EC Analysis</Link>
+                        EC Analysis</Link>
                     </li>
                     <li
                         className={
                             location.pathname === "/tempAnalysis" ? "active" : ""
                         }
                     >
+                        <Link to="/tempAnalysis">
                         <img src={Temperature} width={30} height={30} style={{color:"f2f2f2"}} alt="temperature" />
-                        <Link to="/tempAnalysis">Temperature</Link>
+                        Temperature</Link>
                     </li>
                     <li
                         className={
                             location.pathname === "/summary" ? "active" : ""
                         }
                     >
+                        <Link to="/summary">
                         <img src={Settings} width={30} height={30} style={{color:"f2f2f2"}} alt="summary" />
-                        <Link to="/summary">summary</Link>
+                        summary</Link>
                     </li>
                     <li
                         className={
                             location.pathname === "/logs" ? "active" : ""
                         }
                     >
+                        <Link to="/logs">
                         <img src={Logs} alt="Logs" width={30} height={30} style={{color:"f2f2f2"}}/>
-                        <Link to="/logs">Logs</Link>
+                        Logs</Link>
                     </li>
                     <li
                         className={
                             location.pathname === "/myaccount" ? "active" : ""
                         }
                     >
+                        <Link to="/myaccount">
                         <img src={Support} alt="Support" />
-                        <Link to="/myaccount">my account</Link>
+                        my account</Link>
                     </li>
                     <li
                         className={
                             location.pathname === "/about" ? "active" : ""
                         }
                     >
+                        <Link to="/about">
                         <img src={About} width={30} height={30} style={{color:"f2f2f2"}} alt="Support" />
-                        <Link to="/about">about</Link>
+                        about</Link>
                     </li>
                     <li
                         className={
                             location.pathname === "/liveStream" ? "active" : ""
                         }
                     >
-                        <img src={About} width={30} height={30} style={{color:"f2f2f2"}} alt="Support" />
-                        <Link to="/liveStream">live stream</Link>
+                        <Link to="/liveStream">
+                        <img src={Live} width={30} height={30} style={{color:"f2f2f2"}} alt="Support" />
+                        live stream</Link>
                     </li>
                 </ul>
 

@@ -1,28 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // Import Axios if you prefer Axios over fetch
 import Sidebar from "../components/Sidebar";
 import Signout from '../components/Signout';
 
-function LiveStream({name}) {
+function LiveStream({name, baseURL}) {
   const [videoStream, setVideoStream] = useState(null);
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     const fetchVideoStream = async () => {
       try {
-        const response = await fetch('https://smarthydro-auth-api.onrender.com/get_processed_image');
-        // Use Axios instead:
-        // const response = await axios.get('https://smarthydro-auth-api.onrender.com/get_processed_image');
-        if(!response.ok){
-          throw new Error('Failed to fetch processed image')
-        }
+        const response = await fetch(`${baseURL}/get_processed_image`);
+        !response.ok ? setError(true) : setError(false)
         const blob = await response.blob()
-        setVideoStream(URL.createObjectURL(blob)) // Corrected function name
+        setVideoStream(URL.createObjectURL(blob)) 
       } catch (error) {
         console.error('Error fetching video stream:', error);
+        setError(true)
       }
     };
 
-    const interval = setInterval(fetchVideoStream, 1000); // Adjust interval as needed
+    const interval = setInterval(fetchVideoStream, 1000);
 
     return () => clearInterval(interval);
   }, []);
@@ -37,7 +34,8 @@ function LiveStream({name}) {
             <Signout name={name}/>
           </div>
         </nav>
-            {videoStream && <img src={videoStream} alt="Live Video Stream" width='1280' height='720'/>}
+            {error && <h1>Error Fetching Live Data, Check if the livestream.py program is running</h1>}
+            {videoStream && <center><img className='live_video' src={videoStream} alt="Live Video Stream" width='1080' height='620'/></center>}
         </section>
     </>
   );
