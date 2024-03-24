@@ -197,24 +197,27 @@ def create_app():
     
     @app.route('/receive_video', methods=['POST'])
     def receive_video():
-        nparr = np.frombuffer(request.data, np.uint8)
-        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+        if request.method == 'POST':
+            nparr = np.frombuffer(request.data, np.uint8)
+            img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+            
+            # Process or display the received frame here
+            img_resized = cv2.resize(img, (720, 1280))
         
-        # Process or modify the received frame here
-        # For example, you can resize the image
-        img_resized = cv2.resize(img, (640, 480))
+            # Save the processed image temporarily
+            cv2.imwrite(processed_image_path, img_resized)
         
-        # Save the processed image temporarily
-        cv2.imwrite(processed_image_path, img_resized)
-        
-        return "Image processed successfully"
+            return Response(status=200)
+        else:
+            return Response(status=405)  # Method Not Allowed
 
     @app.route('/get_processed_image', methods=['GET'])
     def get_processed_image():
-        if os.path.exists(processed_image_path):
-            return send_file(processed_image_path, mimetype='image/jpeg')
-        else:
-            return "Processed image not found", 404
+        if request.method == 'GET':
+            if os.path.exists(processed_image_path):
+                return send_file(processed_image_path, mimetype='image/jpeg')
+            else:
+                return "Processed image not found", 404
     
     return app
     

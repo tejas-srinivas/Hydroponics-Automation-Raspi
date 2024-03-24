@@ -16,7 +16,7 @@ function LiveStream({name}) {
           throw new Error('Failed to fetch processed image')
         }
         const blob = await response.blob()
-        setVideoStream(URL.createOjectURL(blob))
+        setVideoStream(URL.createObjectURL(blob)) // Corrected function name
       } catch (error) {
         console.error('Error fetching video stream:', error);
       }
