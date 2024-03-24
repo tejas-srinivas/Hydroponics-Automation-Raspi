@@ -1,4 +1,4 @@
-from flask import Flask, session, Response, request
+from flask import Flask, session, Response, request, send_file
 from flask_pymongo import PyMongo
 from bson.json_util import dumps
 from flask import request
@@ -15,6 +15,7 @@ DATABASE_USER = os.getenv("DATABASE_USER")
 DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD")
 SECRET_KEY = os.getenv("SECRET_KEY")
 CLUSTER_NAME =  os.getenv('CLUSTER_NAME')
+processed_image_path = "processed_image.jpg"
 
 def create_app():
     app = Flask(__name__)
@@ -201,10 +202,22 @@ def create_app():
             img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
             
             # Process or display the received frame here
+            img_resized = cv2.resize(img, (1280, 720))
+        
+            # Save the processed image temporarily
+            cv2.imwrite(processed_image_path, img_resized)
             
             return Response(status=200)
         else:
             return Response(status=405)  # Method Not Allowed
+        
+    @app.route('/get_processed_image', methods=['GET'])
+    def get_processed_image():
+        if request.method == 'GET':
+            if os.path.exists(processed_image_path):
+                return send_file(processed_image_path, mimetype='image/jpeg')
+            else:
+                return "Processed image not found", 404
     # if __name__ == '__main__':
     #     app.run(host='0.0.0.0', port = 5001, debug=True)
 
