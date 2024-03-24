@@ -194,7 +194,7 @@ def create_app():
         resp = dumps(logsData)
         return resp
 
-    @app.route('/receive_video', methods=['GET','POST','PUT'])
+    @app.route('/receive_video', methods=['GET','POST'])
     def receive_video():
         nparr = np.frombuffer(request.data, np.uint8)
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
