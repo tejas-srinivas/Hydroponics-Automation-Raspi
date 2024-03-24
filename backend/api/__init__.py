@@ -15,7 +15,7 @@ DATABASE_USER = os.getenv("DATABASE_USER")
 DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD")
 SECRET_KEY = os.getenv("SECRET_KEY")
 CLUSTER_NAME =  os.getenv('CLUSTER_NAME')
-processed_image_path = "processed_image.jpg"
+processed_image_data = None
 
 def create_app():
     app = Flask(__name__)
@@ -197,15 +197,18 @@ def create_app():
     
     @app.route('/receive_video', methods=['POST'])
     def receive_video():
+        global processed_image_data
         if request.method == 'POST':
+    
             nparr = np.frombuffer(request.data, np.uint8)
             img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
             
-            # Process or display the received frame here
-            img_resized = cv2.resize(img, (720, 1280))
-        
-            # Save the processed image temporarily
-            cv2.imwrite(processed_image_path, img_resized)
+            # Process or modify the received frame here
+            # For example, you can resize the image
+            img_resized = cv2.resize(img, (640, 480))
+            
+            # Store the processed image data in the global variable
+            processed_image_data = img_resized
         
             return Response(status=200)
         else:
@@ -213,9 +216,13 @@ def create_app():
 
     @app.route('/get_processed_image', methods=['GET'])
     def get_processed_image():
+        global processed_image_data
         if request.method == 'GET':
-            if os.path.exists(processed_image_path):
-                return send_file(processed_image_path, mimetype='image/jpeg')
+            
+            if processed_image_data is not None:
+                # Convert the NumPy array to bytes
+                img_bytes = cv2.imencode('.jpg', processed_image_data)[1].tobytes()
+                return Response(img_bytes, mimetype='image/jpeg')
             else:
                 return "Processed image not found", 404
     

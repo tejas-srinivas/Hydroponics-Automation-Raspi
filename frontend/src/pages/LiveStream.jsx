@@ -37,7 +37,7 @@ function LiveStream({name}) {
             <Signout name={name}/>
           </div>
         </nav>
-            {videoStream && <img src={videoStream} alt="Live Video Stream" width='720' height='1280'/>}
+            {videoStream && <img src={videoStream} alt="Live Video Stream" width='1280' height='720'/>}
         </section>
     </>
   );
