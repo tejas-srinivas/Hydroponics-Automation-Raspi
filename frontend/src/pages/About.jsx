@@ -76,7 +76,7 @@ const About = ({ name }) => {
           <img src={RD} alt="" width={150} height={150} style={{ borderRadius: "50%" }} />
           <div className='wrapper'>
             <h2 style={{ textAlign: "center" }}>Research Coordinator, Dept. of ISE, SJBIT</h2>
-            <span>Dr. Abhilash C.N., to know more</span>
+            <span>Dr. Abhilash C N, Professor, to know more</span>
             <a target="_blank" href="https://drive.google.com/file/d/1-bgvm_WSqOmk_jcg6QtOooaTk8WFFpxo/view?usp=drive_link" rel="noreferrer">Click here</a>
           </div>
         </div>
@@ -84,7 +84,7 @@ const About = ({ name }) => {
           <img src={PI} alt="" width={180} height={150} style={{ borderRadius: "50%" }} />
           <div className='wrapper'>
             <h2 style={{ textAlign: "center" }}>Principal Investigator, Dept. of ISE, SJBIT</h2>
-            <span>Dr. Pavitra Bai S, Associate Professor, Project Prinicipal Investigator</span>
+            <span>Dr. Pavitra Bai S, Professor, Project Prinicipal Investigator</span>
             <span>Project Title: Smart Nutrition Management System for Hydroponic Farming</span>
             <span>Scheme: VGST Grant RGS-F/GRD No. 1081</span>
             <a target="_blank" href="https://drive.google.com/file/d/1sBVUuXOSc-aNvSPDyHzgdxUyxC-bK_u2/view?usp=drive_link" rel="noreferrer">Click here</a>

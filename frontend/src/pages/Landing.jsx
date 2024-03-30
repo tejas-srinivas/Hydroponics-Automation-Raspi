@@ -4,7 +4,7 @@ import LandingLogo from '../Images/LandingLogo.png'
 import VgstLogo from '../Images/VGST.png'
 import Image1 from '../Images/hydroponic_garden.jpg'
 import Collage from '../Images/CollageAll.png'
-import Sjbit from '../Images/sjbit.png'
+import Sjbit from '../Images/swamiji.jpg'
 import axios from 'axios'
 import Features from '../components/Features'
 
@@ -78,7 +78,7 @@ const Landing = () => {
         <br />
         <br />
         <h2 className='headings' style={{ height: "20vh", color: "#5c2a03" }}>Special Thanks to SJB Institute of Technology</h2>
-        <img src={Sjbit} alt="sjbitLogo" className='center' />
+        <img src={Sjbit} alt="sjbit" className='center' />
       </div>
       {/* =================================== feautures =========================================== */}
       <div className="about-section" id="about">
