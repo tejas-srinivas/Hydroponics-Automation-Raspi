@@ -164,7 +164,7 @@ def create_app():
         summary = mongo.db.sensor_data.find({},{
             "ph":1,
             "timestamp":1
-        })
+        }).sort({"_id":-1})
         resp = dumps(summary)
         return resp
 
@@ -174,7 +174,7 @@ def create_app():
         summary = mongo.db.sensor_data.find({},{
             "ec":1,
             "timestamp":1
-        })
+        }).sort({"_id":-1})
         resp = dumps(summary)
         return resp
 
@@ -184,7 +184,7 @@ def create_app():
         summary = mongo.db.sensor_data.find({},{
             "temperature":1,
             "timestamp":1
-        })
+        }).sort({"_id":-1})
         resp = dumps(summary)
         return resp
     
