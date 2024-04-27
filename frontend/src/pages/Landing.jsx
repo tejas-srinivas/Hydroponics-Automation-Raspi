@@ -77,7 +77,6 @@ const Landing = () => {
         </div>
         <br />
         <br />
-        <h2 className='headings' style={{ height: "20vh", color: "#5c2a03" }}>Special Thanks to SJB Institute of Technology</h2>
         <img src={Sjbit} alt="sjbit" className='center' />
       </div>
       {/* =================================== feautures =========================================== */}
