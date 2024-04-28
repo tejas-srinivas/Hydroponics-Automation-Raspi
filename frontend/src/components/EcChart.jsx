@@ -33,7 +33,7 @@ const EcChart = ({ baseURL }) => {
         try {
             const response = await axios.get(`${baseURL}/sensor_data`)
                 // console.log(response.data)
-                setChartData(response.data) 
+                setChartData(response.data.reverse()) 
         }
         catch (error) {
             console.log(error)
