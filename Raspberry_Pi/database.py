@@ -122,12 +122,20 @@ def read_temperature_and_humidity():
 def read_ph_sensor():
     ph = DFRobot_PH() 
     ph.begin() 
-    temp,humid = read_temperature_and_humidity()
-    #Get the Digital Value of Analog of selected channel
-    adc0 = ads1115.readVoltage(0)
-    #Convert voltage to PH with temperature compensation
-    PH = ph.read_PH(adc0['r'],temp)
-    return PH
+    temp, humid = read_temperature_and_humidity()
+    
+    # Read pH 10 times
+    readings = []
+    for _ in range(10):
+        # Get the Digital Value of Analog of selected channel
+        adc0 = ads1115.readVoltage(0)
+        # Convert voltage to pH with temperature compensation
+        PH = ph.read_PH(adc0['r'], temp)
+        readings.append(PH)
+    
+    # Calculate average
+    average_ph = sum(readings) / len(readings)
+    return average_ph
 
 # Simulated function to read EC value (replace with actual sensor readings)
 def read_ec_sensor():
