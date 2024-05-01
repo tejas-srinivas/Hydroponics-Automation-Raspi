@@ -551,6 +551,18 @@ tr:nth-child(even) {
   align-items: center;
 }
 
+.pagination{
+  display: flex;
+  padding: 1px 0px 0px 0px;
+  flex-grow: 4;
+  justify-content: space-evenly;
+}
+
+.pagination :disabled{
+  color: black;
+  opacity: 0.4;
+}
+
 @media only screen and (max-width: 480px) {
   .notfound {
     text-align: center

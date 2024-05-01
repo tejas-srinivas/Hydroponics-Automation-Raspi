@@ -33,7 +33,7 @@ const PhChart = ({ baseURL}) => {
         try {
             const response = await axios.get(`${baseURL}/sensor_data`)
                 // console.log(response.data)
-                setChartData(response.data) 
+                setChartData(response.data.reverse()) 
         }
         catch (error) {
             console.log(error)
@@ -52,6 +52,10 @@ const PhChart = ({ baseURL}) => {
     if(chartData){
         const phChartData = chartData.map(value => ({ x: value.ph,y: value.timestamp}))
         //console.log(tempChartData)
+
+        // Sort phChartData in ascending order based on timestamp
+        // phChartData.sort((a, b) => a.y - b.y);
+
         const data = {
             labels: phChartData.map(value => moment(value.y).format('LT')),
             datasets: [
