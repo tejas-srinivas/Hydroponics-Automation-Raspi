@@ -41,7 +41,7 @@ This Project is built using.\
 To see the live demo, visit: https://smarthydroponics.vercel.app/ 
 ## [Link](https://smarthydroponics.vercel.app/)
 
-Dependencies of React App
+Dependencies of React Application
 
 1. Axios Package
 ### `npm install axios`
