@@ -1,0 +1,71 @@
+Metadata-Version: 2.4
+Name: aider-install
+Version: 0.2.0
+Summary: Installer for the aider AI pair programming CLI tool.
+Home-page: https://github.com/Aider-AI/aider-install
+Author: Paul Gauthier
+Author-email: paul@aider.chat
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: uv>=0.5.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# aider-install
+
+A streamlined installer for the [aider AI coding assistant](https://aider.chat).
+
+## Quickly install aider
+
+```bash
+python -m pip install aider-install
+aider-install
+```
+
+## Features
+
+- Sets up aider and its dependencies in an isolated environment
+- Automatically installs Python 3.12 if not present
+- Uses [uv](https://docs.astral.sh/uv/) for fast, reliable Python package management
+- Zero configuration needed
+- Only 2 packages are installed in the original python environment: uv and aider-install.
+No other dependencies pollute your original python environment.
+
+## Requirements
+
+- macOS, Linux, or Windows
+- Python 3.8+ (Python 3.12 will be installed if needed)
+
+## How it works
+
+1. Running `python -m pip install aider-install` installs:
+  - The very minimal `aider-install` package, which provides the `aider-install` command.
+  - The uv python package as its only dependency.
+2. Running `aider-install` does this:
+
+```bash
+uv tool install --python python3.12 aider-chat
+uv tool update-shell
+```
+
+## Documentation
+
+- [Aider documentation](https://aider.chat)
+- [uv package manager](https://docs.astral.sh/uv/)
+
+## Support
+
+For issues with the installer, please [open a GitHub issue](https://github.com/Aider-AI/aider/issues).
+For aider usage questions, see the [aider documentation](https://aider.chat).
